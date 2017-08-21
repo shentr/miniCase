@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <ul id="ul1">
+        <li>
+            <ul>
+                <li>aa</li>
+                <li>aa</li>
+                <li>aa</li>
+                <li>aa</li>
+            </ul>
+        </li>
+        <li>02</li>
+        <li>03</li>
+        <li>04</li>
+    </ul>
+
+    <div id="div1"></div>
+
+    <script>
+//        var oUl = document.getElementById("ul1");
+//        var aLi = oUl.children;
+//        console.log(aLi.length);
+        var oDiv = document.getElementById("div1");
+//        var children = oDiv.childNodes;
+//        for(var i=0; i<children.length; i++){
+//            if(children[i].nodeType == 1){
+//                console.log(children[i]);
+//            }
+//        }
+//        console.log(oDiv.firstElementChild);
+        var oH1 = document.getElementById("h1");
+//        console.log(oH1.nextSibling);
+
+        //查找元素的兄弟（元素节点）
+        function next(elem){
+            do{
+                elem = elem.nextSibling;
+            }while(elem && elem.nodeType != 1);
+            return elem;
+        }
+//        console.log(next(oH1));
+
+        //查找元素的第一个孩子（元素节点）
+        function first(elem){
+           elem = elem.firstChild;
+           return elem && (elem.nodeType == 1 ? elem : next(elem));
+        }
+//        console.log(first(oDiv));
+
+
+
+    </script>
+</body>
+</html>

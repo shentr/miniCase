@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #div1{
+            width: 100px;
+            height: 100px;
+            background: #ff0000;
+            position: absolute;
+        }
+        #target{
+            width: 100px;
+            height: 100px;
+            background: #00ff00;
+            margin: 200px auto;
+        }
+        .collide{
+            border: 1px solid #ff0000;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1"></div>
+    <div id="target"></div>
+    <script>
+        var oDiv = document.getElementById('div1');
+        var oTarget = document.getElementById('target');
+
+        drag(oDiv);
+
+        var iTargetL = oTarget.offsetLeft,
+            iTargetT = oTarget.offsetTop,
+            iTargetR = oTarget.offsetLeft + oTarget.offsetWidth,
+            iTargetB = oTarget.offsetTop + oTarget.offsetHeight;
+
+
+
+
+        function drag(elem){
+            var iDisX =  iDisY = 0;
+            elem.onmousedown = function(e){
+                e = e || window.event;//能力检测
+                iDisX = e.clientX - elem.offsetLeft;
+                iDisY = e.clientY - elem.offsetTop;
+
+                document.onmousemove = function(e){
+                    e = e || window.event;//事件对象
+                    var iLeft = e.clientX - iDisX;
+                    var iTop = e.clientY - iDisY;
+
+                    elem.style.left = iLeft + 'px';
+                    elem.style.top = iTop + 'px';
+
+                    var iElemL =  elem.offsetLeft,
+                        iElemT = elem.offsetTop,
+                        iElemR = elem.offsetLeft + elem.offsetWidth,
+                        iElemB = elem.offsetTop + elem.offsetHeight;
+
+                    if(iElemL>iTargetR || iElemT>iTargetB || iElemR<iTargetL || iElemB<iTargetT){
+
+                    }else{
+                        oTarget.className = 'collide';
+                    }
+
+                    return false;//阻止默认行为
+                };
+
+                document.onmouseup = function(){
+                    document.onmousemove = null;
+                    document.onmouseup = null;
+                };
+            };
+        }
+    </script>
+</body>
+</html>

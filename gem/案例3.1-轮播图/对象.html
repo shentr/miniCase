@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <script>
+        //1. 内置对象：
+        //2. DOM对象
+        //3. 自定义对象
+        /*var a = 5;
+        var b = "abc";*/
+
+        var obj = new Object();
+        obj.name = "lisi";
+        obj.age = 34;
+        obj.sayHi = function(){
+//            alert(obj.name);
+            alert(this.name);
+        };
+
+        obj.sayHi();
+
+        var obj = {//对象直接量
+            name: 'lisi',
+            age: 34,
+            sayHi: function(){
+                alert(this.name);
+            }
+        };
+
+        obj.sayHi();
+
+/*
+        function aa(){
+            alert(this);//=>window
+        }
+        aa();*/
+
+
+    </script>
+</body>
+</html>

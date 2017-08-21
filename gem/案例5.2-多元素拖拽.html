@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #div1, #h1, #p1{
+            width: 100px;
+            height: 100px;
+            background: #ff0000;
+            position: absolute;
+            left: 0;
+        }
+        #div1{
+            top: 0;
+        }
+        #h1{
+            top: 120px;
+
+        }
+        #p1{
+            top: 240px;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">div1</div>
+    <h1 id="h1">h1</h1>
+    <p id="p1">p1</p>
+
+    <script>
+        /**
+         * 可以将指定的elem元素进行拖拽
+         * @param elem 拖拽的元素
+         */
+        function drag(elem){
+            var iDisX =  iDisY = 0;
+            elem.onmousedown = function(e){
+                e = e || window.event;//能力检测
+                iDisX = e.clientX - elem.offsetLeft;
+                iDisY = e.clientY - elem.offsetTop;
+
+                document.onmousemove = function(e){
+                    e = e || window.event;//事件对象
+                    var iLeft = e.clientX - iDisX;
+                    var iTop = e.clientY - iDisY;
+
+                    if(iLeft <= 20){
+                        iLeft = 0;
+                    }
+                    if(iLeft >= document.documentElement.clientWidth - elem.offsetWidth){
+                        iLeft = document.documentElement.clientWidth - elem.offsetWidth;
+                    }
+                    if(iTop <= 20){
+                        iTop = 0;
+                    }
+                    if(iTop >= document.documentElement.clientHeight - elem.offsetHeight){
+                        iTop = document.documentElement.clientHeight - elem.offsetHeight;
+                    }
+
+                    elem.style.left = iLeft + 'px';
+                    elem.style.top = iTop + 'px';
+                    return false;//阻止默认行为
+                };
+
+                document.onmouseup = function(){
+                    document.onmousemove = null;
+                    document.onmouseup = null;
+                };
+            };
+        }
+
+        var oDiv = document.getElementById('div1');
+        var oH1 = document.getElementById('h1');
+        var oP = document.getElementById('p1');
+
+        drag(oDiv);
+        drag(oH1);
+        drag(oP);
+    </script>
+
+
+</body>
+</html>

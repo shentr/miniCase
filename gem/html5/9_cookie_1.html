@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //document.cookie = 'name=lisi;expires='+date;
+    function setCookie(key,value,day){
+        var str = key +"="+value+";";
+        if(day){
+            var date = new Date();
+            date.setDate(date.getDate()+day);
+
+            str += 'expires='+date
+            ;
+        }
+        document.cookie = str;
+    }
+    setCookie('name','xxx',7);
+
+    function getCookie(key){
+        var str = document.cookie; //"age=18; name=xxx"
+
+        var arr = str.split('; ');  //['age=18','name=xxx'];
+
+        for(var i=0; i<arr.length; i++){
+            var arr1 = arr[i].split('=');  //['age','18']   ['name','xxx']
+            if(arr1[0] == key){
+                return arr1[1];
+            }
+        }
+    }
+    console.log(getCookie('name'));  //xxx
+
+    function removeCookie(key){
+        setCookie(key,'',-1);
+    }
+    removeCookie('age');
+</script>
+
+</body>
+</html>

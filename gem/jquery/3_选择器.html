@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #div2{
+            height: 10px;
+
+        }
+    </style>
+    <script src="jquery-1.12.4.js"></script>
+
+</head>
+<body>
+    <div id="div1">
+        aaa
+        <div>
+            pppp
+            <div id="div2">jjj</div>
+        </div>
+        <h1>9999</h1>
+    </div>
+    <div class="aa">bbb</div>
+    <div>ccc</div>
+
+    <input name="man-news" />
+
+    <input name="milkman" />
+    <input name="letterman2" />
+    <input name="newmilk" />
+    <h2>aaa</h2>
+    <h4>www</h4>
+
+    <input type="button" disabled value="click"/>
+    <input type="file"/>
+    <select name="" id="sel">
+        <option value="111">111</option>
+        <option value="222">222</option>
+    </select>
+    <script>
+
+        /*var aDiv = document.getElementsByClassName('aa');
+        for(var i=0; i<aDiv.length; i++){
+            aDiv[i].style.background = "red";
+        }*/
+        //$(".aa").css("background","red");
+        //$("#div1,.aa").css("background","red");
+        //$("#div1~div").css("background","red");
+
+        //$('input[name*="man"]').css("background","red");
+        //$("#div1 h1:first-child").css("background","red");
+        //$("#div1 h1:first-of-type").css("background","red");
+       // $("#div1 h1:only-child").css("background","red");
+
+        //$("input:eq(2)").css("background","red");
+        //$("input:even").css("background","red");
+//        $("input:gt(2)").css("background","red");
+//        $(":header").css("background","red");
+        //name="man-news"
+        //$("input:not([name='man-news'])").css("background","red");
+        //$("#div1 :empty").css("background","red");
+        //$("#div1:has('h5')").css("background","red");
+        //$(":button").css("background","red");
+
+        $("#sel").on('change',function(){
+            console.log($(":checked").val());
+            //alert();
+        });
+    </script>
+</body>
+</html>

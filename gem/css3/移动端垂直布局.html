@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #container{
+            width: 300px;
+            height: 480px;
+            margin: 0 auto;
+            background: #cccccc;
+        }
+        #header{
+            height: 50px;
+            background: #ff0000;
+            position: fixed;
+            top: 0;
+            width: 100%;
+        }
+        #footer{
+            height: 50px;
+            background: #333;
+            color: #fff;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+        #content{
+            /*height: 600px;*/
+            position: fixed;
+            top: 50px;
+            bottom: 50px;
+            width: 100%;
+            overflow: scroll;
+        }
+    </style>
+</head>
+<body>
+    <!--<div id="container">-->
+        <div id="header">header</div>
+        <div id="content">
+            content <br>
+            content <br>
+            content <br>
+
+        </div>
+        <div id="footer">footer</div>
+    <!--</div>-->
+</body>
+</html>

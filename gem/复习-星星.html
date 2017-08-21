@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        function fn1(num){
+            for(var i=1; i<=num; i++){
+                for(var j=1; j<=i; j++){
+                    document.write(j + "&nbsp;");
+                }
+                document.write("<br>");
+            }
+        }
+        function fn2(num) {
+            for(var i=1; i<=num; i++){
+                for(var k=1; k<=num-i; k++){
+                    document.write("&nbsp;");
+                }
+                for(var j=1; j<=i; j++){
+                    document.write("*&nbsp;");
+                }
+                document.write("<br>");
+            }
+        }
+        fn1(9);
+        fn2(20);
+    </script>
+</body>
+</html>

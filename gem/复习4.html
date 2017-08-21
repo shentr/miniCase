@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div1{
+            width: 200px;
+            height: 200px;
+            background: #ff0000;
+        }
+        body{
+            height: 2000px;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">div</div>
+    <script>
+        var oDiv = document.getElementById("div1");
+        oDiv.onclick = function(e){
+            var target = e.target || window.event.srcElement;
+            console.log(target);
+        };
+//        oDiv.onmousedown = function(e){
+//            console.log("mousedown");
+//        };
+//        oDiv.onmouseup = function(e){
+//            console.log("mouseup");
+//        };
+//
+//        window.onscroll = function(){
+//            var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+//            console.log(scrollTop);
+//        };
+//
+//        document.body.oncontextmenu = function(e){
+//            console.log(e.clientX + "," + e.clientY);
+//
+//            return false;
+//        };
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul, ol{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        img{
+            border: 0;
+        }
+
+        #container{
+            width: 680px;
+            height: 344px;
+            margin: 100px auto;
+            overflow: hidden;
+            position: relative;             /*///父元素设srelative 则子元素absolute是相对于父元素的绝对位置*/
+        }
+        #tab{
+            position: absolute;
+            right: 20px;
+            bottom: 10px;
+        }
+        #tab li{
+            width: 20px;
+            height: 20px;
+            float: left;
+            background: #000000;
+            color: #fff;
+            margin-right: 5px;
+            text-align: center;
+            line-height: 20px;
+            cursor: pointer;
+        }
+        #tab .selected{
+            background: orange;
+        }
+        #content img{
+            display: none;
+        }
+        #content .selected{
+            display: block;
+        }
+        #arrow{
+            position: absolute;
+            left: 20px;
+            bottom: 10px;
+        }
+        #arrow span{
+            width: 20px;
+            height: 20px;
+            background: #000000;
+            color: #fff;
+            text-align: center;
+            line-height: 20px;
+            float: left;
+            margin-right: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div id="container">
+    <ul id="tab">
+        <li class="selected">1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+    <div id="content">
+        <img class="selected" src="img/1.jpg" alt=""/>
+        <img src="img/2.jpg" alt=""/>
+        <img src="img/3.jpg" alt=""/>
+        <img src="img/4.jpg" alt=""/>
+    </div>
+    <div id="arrow">
+        <span id="prev">&lt;</span>
+        <span id="next">&gt;</span>
+    </div>
+</div>
+<script>
+    var oContainer = document.getElementById('container');
+    var oTab = document.getElementById('tab');
+    var aLi = oTab.getElementsByTagName('li');
+    var oContent = document.getElementById('content');
+    var aImg = oContent.getElementsByTagName('img');
+    var oPrev = document.getElementById('prev');
+    var oNext = document.getElementById('next');
+
+    var iNow = 0;//代表当前正在显示的图片的索引
+
+    for(var i=0; i<aLi.length; i++){
+        aLi[i].index = i;
+        aLi[i].onmouseover = function(){
+            changeImg(this.index);
+        };
+    };
+
+    oPrev.onclick = function(){
+        iNow--;
+        if(iNow == -1){
+            iNow = aLi.length - 1;
+        }
+        changeImg(iNow);
+    };
+    oNext.onclick = function(){
+        iNow++;
+        if(iNow == aLi.length){
+            iNow = 0;
+        }
+        changeImg(iNow);
+    };
+
+    function changeImg(idx){
+        for(var i=0; i<aLi.length; i++){
+            aLi[i].className = '';
+            aImg[i].className = '';
+        }
+        //elem.className = 'selected';
+        aLi[idx].className = 'selected';
+        aImg[idx].className = 'selected';
+    }
+
+    var timer;
+    function run(){
+        timer = setInterval(function(){                 ///定时
+            oNext.onclick();
+        }, 2000);
+    }
+    run();
+
+    oContainer.onmouseover = function(){
+        clearInterval(timer);                       ///消除定时
+    };
+    oContainer.onmouseout = function(){
+        run();
+    };
+
+
+
+</script>
+</body>
+</html>

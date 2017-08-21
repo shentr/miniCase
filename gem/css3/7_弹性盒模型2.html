@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #main{
+            display: flex;
+            /*display: -webkit-box;*/
+            /*-webkit-box-orient: vertical;*/
+            /*padding-left: 400px;*/
+        }
+        #div1, #div2, #div3{
+            height: 300px;
+            flex-grow: 1;
+        }
+        #div1{
+            background: #ff0000;
+            /*-webkit-box-flex: 1;*/
+        }
+        #div2{
+            background: #00ff00;
+            /*-webkit-box-flex: 2;*/
+        }
+        #div3{
+            background: #ffff00;
+            /*-webkit-box-flex: 3;*/
+        }
+
+    </style>
+</head>
+<body>
+    <div id="main">
+        <div id="div1">div1</div>
+        <div id="div2">div2</div>
+        <div id="div3">div3</div>
+    </div>
+
+</body>
+</html>

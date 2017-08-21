@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #div1{
+            width: 200px;
+            height: 200px;
+            background: #ff0000;
+        }
+        #div2{
+            width: 400px;
+            height: 400px;
+            background: #0f0;
+            position: relative;
+            left: 100px;
+            top: 100px;
+        }
+    </style>
+</head>
+<body>
+    <!--<div id="div2">-->
+        <div id="div1">div1</div>
+    <!--</div>-->
+
+
+    <ul id="ul1">
+        <li>001</li>
+        <li class="aa">002</li>
+        <li>003</li>
+        <li>004</li>
+    </ul>
+
+
+
+
+    <script src="jquery-1.12.4.js"></script>
+    <script>
+        $(function(){
+//            console.log("offset=" + $("#div1").offset().top);
+//            console.log("position=" + $("#div1").position().top);
+//            console.log($("#div1").text("asdfasf"));
+            $("#div1").prepend("<p>ppppp</p>");
+
+            $("#ul1 li").filter(".aa").css("background", "red");
+            $("#div1").hover(function(){
+                console.log("in");
+            }, function(){
+                console.log("out");
+            });
+
+        });
+
+    </script>
+</body>
+</html>

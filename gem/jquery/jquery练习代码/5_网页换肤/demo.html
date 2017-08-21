@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        ul{
+            list-style: none;
+            width: 200px;
+            height: 25px;
+            border:1px solid #ccc;
+        }
+        #container{
+            margin: 20px;
+        }
+        #tabs li{
+            width: 15px;
+            height: 15px;
+            float: left;
+            margin: 5px;
+            background-image: url("theme.gif");
+            background-repeat: no-repeat;
+        }
+
+        .news{
+            width: 100px;
+            height: 40px;
+            display: inline-block;
+            line-height: 40px;
+            text-align: center;
+            background: #999999;
+            color:#fff;
+            margin-top:30px;
+        }
+        .skin0{
+            background:#999;
+        }
+        .skin5{
+            background:#BB3BD9;
+        }
+        .skin4{
+            background:#E31559;
+        }
+        .skin3{
+            background:#08BECE;
+        }
+        .skin2{
+            background:#FBA60A;
+        }
+        .skin1{
+            background:#AFD400;
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <div id="container">
+        <ul id="tabs">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+
+        <div class="news">时事新闻</div>
+        <div class="news">娱乐新闻</div>
+    </div>
+    <script src="../../jquery-1.12.4.js"></script>
+
+    <script>
+        function init(){
+            //初始化所有按钮背景
+            $('li').each(function(index,elem){
+                $(this).css('background-position',-index*20+"px 0px");
+            })
+        }
+        init();
+        //设置皮肤的默认值是0；
+        var index = 0;
+        //如果cookie中有值 替换默认值
+        if(getCookie('skin')){
+            index = getCookie('skin');
+        };
+
+       /* var oImg = new Image();
+        oImg.onload = function(){*/
+
+        $('li').on('click',function() {
+            //把所有li回复默认样式
+            init();
+            //将点击的li样式设置成勾选状态
+            $(this).css('background-position', -$(this).index() * 20 + "px -15px");
+            //将所有news的class  恢复至news  再添加一个对应勾选的样式
+            $('.news').attr('class','news').addClass('skin'+$(this).index());
+            //将对应皮肤设置到cookie  值为 0 1 2 3 4 5
+            setCookie('skin',$(this).index(),7);
+        });
+        //初始化的时候 触发li的点击事件
+        $('li').eq(index).trigger('click');
+
+
+       /* }
+        oImg.src='theme.gif';*/
+
+
+        function setCookie(key,value,day){
+            var str = key +"="+value+";";
+            if(day){
+                var date = new Date();
+                date.setDate(date.getDate()+day);
+
+                str += 'expires='+date
+                ;
+            }
+            document.cookie = str;
+        }
+        function getCookie(key){
+            var str = document.cookie; //"age=18; name=xxx"
+
+            var arr = str.split('; ');  //['age=18','name=xxx'];
+
+            for(var i=0; i<arr.length; i++){
+                var arr1 = arr[i].split('=');  //['age','18']   ['name','xxx']
+                if(arr1[0] == key){
+                    return arr1[1];
+                }
+            }
+        }
+
+    </script>
+
+
+</body>
+</html>

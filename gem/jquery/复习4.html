@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #div1{
+            width: 200px;
+            height: 200px;
+            background: #ff0000;
+            padding: 10px;
+            border: 10px solid #000;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1" class="bb">div1</div>
+    <input type="text" id="username">
+
+    <script src="jquery-1.12.4.js"></script>
+    <script>
+       /* var oDiv1 = document.getElementById("div1");
+        oDiv1.aa = "aa";
+        console.log(oDiv1.aa);
+
+        oDiv1.setAttribute("bb", "bb");
+        console.log(oDiv1.getAttribute("bb"));*/
+
+        $(function(){
+//            var $div1 = $("#div1");
+
+//            $div1.attr("aa", "11");
+//            $div1.prop("bb", "22");
+//
+//            console.log($div1.attr("aa"));
+//            console.log($div1.prop("bb"));
+//
+//            $("#username").val("123");
+
+//            $div1.addClass("aa");
+
+//            $div1.css("background", "red");
+//            $div1.css({
+//                background : "#f00",
+//                border : "1px solid #000"
+//
+//            });
+//            $div1.css("height", function(){
+//                return 200;
+//            });
+            var $div1 = $("#div1");
+            console.log("width=" + $div1.width());
+            console.log("innerWidth=" + $div1.innerWidth());
+            console.log("outerWidth=" + $div1.outerWidth(true));
+
+        });
+
+    </script>
+</body>
+</html>

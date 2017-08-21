@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #container{
+            position: relative;
+            top: 300px;
+            left: 300px;
+            width: 50px;
+            height: 50px;
+        }
+        img{
+            position: absolute;
+            cursor: pointer;
+            transition: all 1s ease;
+        }
+        #home{
+            transition: transform 1s ease;
+            width: 50px;
+            height: 50px;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="menu">
+            <img src="img/close.png" alt="">
+            <img src="img/full.png" alt="">
+            <img src="img/open.png" alt="">
+            <img src="img/prev.png" alt="">
+            <img src="img/refresh.png" alt="">
+        </div>
+        <div id="home">
+            <img src="img/home.png" alt="">
+        </div>
+    </div>
+    <script>
+        var oHome = document.getElementById("home");
+        var oMenu = document.getElementById("menu");
+        var aImg = oMenu.getElementsByTagName("img");
+        var bFlag = false;//标识位，false表示要打开，true表示要合并
+        oHome.onclick = function(){
+            if(bFlag){//要合并
+                this.style.transform = "rotate(0deg)";
+                for(var i=0; i<aImg.length; i++){
+                    aImg[i].style.transform = "translate(0, 0) rotate(0)";
+                    aImg[i].style.transitionDelay = i * 50 + "ms";
+
+                    aImg[i].currentTransform = aImg[i].style.transform;
+                }
+            }else{//要打开
+                this.style.transform = "rotate(-360deg)";
+                for(var i=0; i<aImg.length; i++){
+                    var x = -150 * Math.cos(22.5 * i * Math.PI / 180);
+                    var y = -150 * Math.sin(22.5 * i *  Math.PI / 180);
+                    aImg[i].style.transform = "translate("+ x +"px, " + y +"px) rotate(-360deg)";
+                    aImg[i].style.transitionDelay = (aImg.length - i) * 50 + "ms";
+
+                    aImg[i].currentTransform = aImg[i].style.transform;                     ///important
+
+                }
+            }
+            bFlag = !bFlag;
+        };
+        for(var i=0; i<aImg.length; i++){
+            aImg[i].state = false;//自定义属性state，表示当前动画是否执行完成，false表示未完成，true表示已完成
+            aImg[i].onclick = function(){
+                if(!this.state){//表示已完成
+                    //console.log(this.style.transform)
+                    this.style.transform = this.currentTransform + " scale(2)";//大小变为2倍
+                    this.addEventListener("webkitTransitionEnd", fn);//监听变为2倍的状态何时执行完
+                }
+
+                function fn() {
+                    this.style.transform = this.currentTransform;//恢复到原大小
+                    this.state = !this.state;
+                }
+
+
+
+
+
+
+
+
+
+
+
+
+               /* this.currentTransform = this.style.transform;
+                if(this.currentTransform.indexOf("scale(2)") == -1){
+                    this.style.transform = this.currentTransform + " scale(2)";
+                }else{
+                    this.style.transform = this.currentTransform.replace(/scale\(2\)/g, "");
+                }
+                this.addEventListener("webkitTransitionEnd", fn);
+                function fn(){
+                    if(this.currentTransform.indexOf("scale(2)") != -1){
+                        this.currentTransform.replace(/scale\(2\)/g, "");
+                    }
+                    this.style.transform = this.currentTransform;
+                    this.removeEventListener("webkitTransitionEnd", fn);
+                }*/
+            };
+        }
+    </script>
+</body>
+</html>

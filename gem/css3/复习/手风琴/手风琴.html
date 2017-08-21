@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+            width: 805px;
+            height: 500px;
+            margin: 50px auto;
+            overflow: hidden;
+        }
+        li{
+            width: 160px;
+            border-left: 1px solid #ccc;
+            float: left;
+            /*overflow: hidden;*/
+            position: relative;
+            -webkit-transition: width 1s ease;
+        }
+        li span{
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 600px;
+            height: 30px;
+            background: rgba(0,0,0,0.6);
+            color:#fff;
+            font-size: 16px;
+            line-height: 30px;
+        }
+        img{
+            width: 600px;
+            height: 500px;
+        }
+
+        ul:hover li{
+            width: 50px;
+        }
+        ul li:hover{
+            width: 600px;
+        }
+
+
+    </style>
+
+</head>
+<body>
+   <ul>
+       <li>
+           <img src="img/1.jpg" alt=""/>
+           <span>1111</span>
+       </li>
+       <li>
+           <img src="img/2.jpg" alt=""/>
+           <span>222</span>
+       </li>
+       <li>
+           <img src="img/3.jpg" alt=""/>
+           <span>333</span>
+       </li>
+       <li>
+           <img src="img/4.jpg" alt=""/>
+           <span>444</span>
+       </li>
+       <li>
+           <img src="img/5.jpg" alt=""/>
+           <span>555</span>
+       </li>
+   </ul>
+</body>
+</html>

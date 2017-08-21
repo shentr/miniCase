@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        #container{
+            width: 400px;
+            margin: 100px auto;
+        }
+        #tab{
+            height: 30px;
+        }
+        #tab li{
+            width: 100px;
+            height: 30px;
+            background: #cccccc;
+            float: left;
+            text-align: center;
+            line-height: 30px;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+        #tab .selected{
+            background: #000000;
+            color: #fff;
+        }
+        #content div{
+            width: 400px;
+            height: 300px;
+            background: #eeeeee;
+            display: none;
+            border-top: 1px solid #000;
+        }
+        #content .selected{
+            display: block;
+        }
+    </style>
+
+    <!--<link rel="stylesheet" href="xx.css">-->
+</head>
+<body>
+    <div id="container">
+        <ul id="tab">
+            <li class="selected">js</li>
+            <li>html</li>
+            <li>css</li>
+        </ul>
+        <div id="content">
+            <div class="selected">1111</div>
+            <div>2222</div>
+            <div>3333</div>
+        </div>
+    </div>
+
+    <script>
+        var oTab = document.getElementById("tab");
+        var aLi = oTab.getElementsByTagName("li");
+        var oContent = document.getElementById("content");
+        var aDiv = oContent.getElementsByTagName("div");
+        for(var i=0; i<aLi.length; i++){
+            aLi[i].index = i;
+            aLi[i].onclick = function(){
+                for(var j=0; j<aLi.length; j++){
+                    aLi[j].className = "";
+                    aDiv[j].style.display = "none";
+                }
+                this.className = "selected";
+                aDiv[this.index].style.display = "block";
+            };
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>折叠菜单</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        #menu{
+            width: 200px;
+        }
+        #menu h3{
+            height: 40px;
+            background: #000000;
+            color: #fff;
+            line-height: 40px;
+            cursor: pointer;
+        }
+        #menu .sub-menu{
+            border: 1px solid #000;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<ul id="menu">
+    <li class="main-menu">
+        <h3>管理区</h3>
+        <ul class="sub-menu">
+            <li><a href="#">001</a></li>
+            <li><a href="#">002</a></li>
+            <li><a href="#">003</a></li>
+        </ul>
+    </li>
+    <li class="main-menu">
+        <h3>交流区</h3>
+        <ul class="sub-menu">
+            <li><a href="#">001</a></li>
+            <li><a href="#">002</a></li>
+            <li><a href="#">003</a></li>
+        </ul>
+    </li>
+</ul>
+<script>
+    var oMenu = document.getElementById("menu");
+    var aH3 = oMenu.getElementsByTagName("h3");
+
+    //var bShow = false;//一个标识位，用来标识sub-menu是否显示，
+                // true代表显示，false代表隐藏
+
+    for(var i=0; i<aH3.length; i++){
+        aH3[i].bShow = false;
+        aH3[i].onclick = function(){
+            console.log( this.nextSibling );                      ///return node类型
+            //console.log( this.nextElementSibling);                 ///return Element类型
+            var oSubMenu = next(this);
+            //var oSubMenu = this.nextElementSibling;
+
+            if(oSubMenu){
+                /*if(oSubMenu.style.display == 'block'){
+                    oSubMenu.style.display = 'none';
+                }else{
+                    oSubMenu.style.display = 'block';
+                }*/
+                if(this.bShow){
+                    oSubMenu.style.display = 'none';
+                }else{
+                    oSubMenu.style.display = 'block';
+                }
+                this.bShow = !this.bShow;
+            }
+
+        };
+    }
+var cnt =0;
+    function next(elem){
+        do{
+            elem = elem.nextSibling;
+        }while(elem && elem.nodeType != 1);
+        return elem;
+    }
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

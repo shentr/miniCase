@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul, ol{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        img{
+            border: 0;
+        }
+
+        #container{
+            width: 680px;
+            height: 344px;
+            margin: 100px auto;
+            overflow: hidden;
+            position: relative;
+        }
+        #tab{
+            position: absolute;
+            right: 20px;
+            bottom: 10px;
+            z-index: 9999;
+        }
+        #tab li{
+            width: 20px;
+            height: 20px;
+            float: left;
+            background: #000000;
+            color: #fff;
+            margin-right: 5px;
+            text-align: center;
+            line-height: 20px;
+            cursor: pointer;
+        }
+        #tab .selected{
+            background: orange;
+        }
+        #content{
+            position: relative;
+        }
+        #content img{
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        #arrow{
+            position: absolute;
+            left: 20px;
+            bottom: 10px;
+            z-index: 9999;
+        }
+        #arrow span{
+            width: 20px;
+            height: 20px;
+            background: #000000;
+            color: #fff;
+            text-align: center;
+            line-height: 20px;
+            float: left;
+            margin-right: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div id="container">
+    <ul id="tab">
+        <li class="selected">1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+    <div id="content">
+        <img src="img/1.jpg" alt=""/>
+        <img src="img/2.jpg" alt=""/>
+        <img src="img/3.jpg" alt=""/>
+        <img src="img/4.jpg" alt=""/>
+    </div>
+    <div id="arrow">
+        <span id="prev" onselectstart="return false;">&lt;</span>
+        <span id="next" onselectstart="return false;">&gt;</span>
+    </div>
+</div>
+<script src="jslib2.js"></script>
+<script>
+    var oContainer = document.getElementById('container');
+    var oTab = document.getElementById('tab');
+    var aLi = oTab.getElementsByTagName('li');
+    var oContent = document.getElementById('content');
+    var aImg = oContent.getElementsByTagName('img');
+    var oPrev = document.getElementById('prev');
+    var oNext = document.getElementById('next');
+
+    var zIndex = 4;
+    var iNow = 0;
+
+    for(var i=0; i<aLi.length; i++){
+        aImg[i].style.zIndex = aImg.length - i;
+        aLi[i].index = i;
+        aLi[i].onmouseover = function(){
+            changeImg(this.index);
+        };
+    };
+    oPrev.onclick = oNext.onclick = function(){
+        if(this == oPrev){
+            iNow--;
+            if(iNow == -1){
+                iNow = aLi.length - 1;
+            }
+            changeImg(iNow);
+        }else{
+            iNow++;
+            if(iNow == aLi.length){
+                iNow = 0;
+            }
+            changeImg(iNow);
+        }
+    };
+
+    function changeImg(index){
+        iNow = index;
+        for(var i=0; i<aLi.length; i++){
+            aLi[i].className = '';
+        }
+        aLi[iNow].className = 'selected';
+
+        var oImg = aImg[iNow];
+        oImg.style.opacity = 0;
+        oImg.style.filter = "alpha(opacity=0)";
+        oImg.style.zIndex = ++zIndex;
+        console.log(oImg.style.zIndex);
+
+        animate(oImg, {opacity: 100});
+    }
+
+    var timer = setInterval(function(){
+        oNext.onclick();
+    }, 2000);
+
+    oContainer.onmouseover = function(){
+        clearInterval(timer);
+    };
+    oContainer.onmouseout = function(){
+        timer = setInterval(function(){
+            oNext.onclick();
+        }, 2000);
+    };
+
+</script>
+</body>
+</html>

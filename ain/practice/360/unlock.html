@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <!--<meta http-equiv="cache-control" content="max-age=604800" />-->
+	<title>unlock</title>
+	<link rel="stylesheet" href="./public/css/reset.css" />
+    <link rel="stylesheet" href="./public/css/unlock.css" />
+</head>
+<body>
+	<div id="unlock" class="unlock-container">	
+		<div class="unlock-top">手势密码</div>
+		<div class="unlock-body">
+            <div id="unlock-induction" class="unlock-induction">
+                <canvas id="unlock-drawLine"></canvas>
+                <ul id="unlock-gesture" class="unlock-gesture">
+                    <li id="unlock-1"></li>
+                    <li id="unlock-2"></li>
+                    <li id="unlock-3"></li>
+                    <li id="unlock-4"></li>
+                    <li id="unlock-5"></li>
+                    <li id="unlock-6"></li>
+                    <li id="unlock-7"></li>
+                    <li id="unlock-8"></li>
+                    <li id="unlock-9"></li>
+                </ul>
+                <div id="unlock-hint" class="unlock-hint">请输入手势密码</div>
+            </div>
+            <ul id="unlock-choose" class="unlock-choose">
+                <li>
+                    <input type="radio" id="unlock-set-password"  name="password" value="set"/>
+                    <label for="unlock-set-password">设置密码</label>
+                </li>
+                <li>
+                    <input type="radio" id="unlock-confirm-password" name="password" value="confirm"/>
+                    <label for="unlock-confirm-password">验证密码</label>
+                </li>
+            </ul>
+        </div>
+    </div>
+	<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="./public/js/unlock.js"></script>
+</body>
+</html>

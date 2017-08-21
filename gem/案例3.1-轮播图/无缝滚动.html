@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>无缝滚动</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        #container{
+            width: 363px;
+            height: 200px;
+            border: 1px solid #000;
+            margin: 100px auto;
+            overflow: hidden;
+            position: relative;
+        }
+        #content{
+            width: 484px;
+            position: absolute;
+        }
+        #content li{
+            width: 120px;
+            height: 120px;
+            background: #000000;
+            color: #fff;
+            text-align: center;
+            line-height: 120px;
+            font-size: 30px;
+            float: left;
+            //margin-right: 10px;
+            border-right:1px groove white ;
+            cursor:pointer;
+        }
+        #prev, #next{
+            width: 50px;
+            height: 30px;
+            float: left;
+            background: #cccccc;
+            color: #fff;
+            text-align: center;
+            line-height: 30px;
+            margin-right: 5px;
+            cursor: pointer;
+        }
+        #arrows{
+            width: 110px;
+            height: 30px;
+            /*overflow: hidden;*/
+            position: absolute;
+            left: 50%;
+            margin-left: -55px;
+            bottom: 25px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <ul id="content">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <!--<li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>-->
+        </ul>
+        <div id="arrows">
+            <span id="prev">向左</span>
+            <span id="next">向右</span>
+        </div>
+    </div>
+    <script>
+        var oContent = document.getElementById("content");
+        var oPrev = document.getElementById("prev");
+        var oNext = document.getElementById("next");
+        const constSpeed=1;
+        var speed = constSpeed;
+//        var aLi = oContent.getElementsByTagName("li");
+        oContent.innerHTML += oContent.innerHTML;
+
+//        console.log(aLi.length);
+//        console.log(oContent.offsetWidth);
+        //console.log(oContent.style);
+        oContent.style.width = oContent.offsetWidth * 2 + "px";
+        var timer;
+        var run = function() {
+                timer = setInterval(function(){
+                oContent.style.left = oContent.offsetLeft - speed + "px";
+                //console.log(oContent.offsetLeft);
+                if(oContent.offsetLeft <= -oContent.offsetWidth / 2){
+                    ///clearInterval(time);
+                    oContent.style.left = 0;
+
+                }
+                if(oContent.offsetLeft > 0){
+                    oContent.style.left = -oContent.offsetWidth / 2 + "px";
+                }
+            }, 10);
+        };
+        console.log(oContent.style.width);
+        //run();
+        oContent.onmouseout=function () {
+            //run();
+            console.log(run);
+        }
+        oContent.onmouseover=function () {
+            clearInterval(timer);
+        }
+        oPrev.onmouseover = oNext.onmouseover = function(){
+            console.log(this)
+            if(this === oPrev){
+                speed = constSpeed;
+            }else{
+                speed = -constSpeed;
+            }
+        };
+    </script>
+</body>
+</html>

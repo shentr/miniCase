@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #div1{
+            width: 200px;
+            height: 100px;
+            background: #ff0000;
+            position: absolute;
+            left: 0;
+            top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn">移动</button>
+    <div id="div1">div</div>
+    <script src="jslib.js"></script>
+    <script>
+        var oDiv1 = document.getElementById('div1');
+        var oBtn = document.getElementById('btn');
+        oBtn.onclick = function(){
+            /*setInterval(function(){
+                oDiv1.style.left = oDiv1.offsetLeft + 10 + 'px';
+            }, 30);*/
+            //回调函数：callback
+            animate(oDiv1, {
+                left: 300,
+                top: 200,
+                //opacity:50
+            }, function(){
+                animate(oDiv1, {
+                    width: 400
+                }, function(){
+                    animate(oDiv1, {
+                        height: 200
+                    });
+                });
+            });
+
+
+
+        };
+    </script>
+</body>
+</html>

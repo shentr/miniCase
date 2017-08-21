@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #container{
+            width: 300px;
+            height: 200px;
+            background: #cccccc;
+            overflow: hidden;
+            position: relative;
+        }
+        #content{
+            width: 280px;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        #scroll-bar{
+            width: 20px;
+            height: 200px;
+            background: #aaa;
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+        #scroll-btn{
+            width: 20px;
+            height: 20px;
+            background: #ff0000;
+            position: absolute;
+            left: 0;
+            top: 0;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="content">
+            哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+            哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+            哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+            哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+            哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+            哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+            哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+            哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+            哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+            哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+            哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+            哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+            哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+            哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+            哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+            哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+            哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+            哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+            哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+            哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+            哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+        </div>
+        <div id="scroll-bar">
+            <span id="scroll-btn"></span>
+        </div>
+    </div>
+    <script>
+        var oContainer = document.getElementById('container');
+        var oContent = document.getElementById('content');
+        var oScrollBtn = document.getElementById('scroll-btn');
+        oScrollBtn.onmousedown = function(e){
+            e = e || window.event;
+//            iDisX = e.clientX;
+            iDisY = e.clientY - oContainer.offsetTop - oScrollBtn.offsetTop;
+            document.onmousemove = function(e){
+                e = e || window.event;
+                var iTop = e.clientY - oContainer.offsetTop - iDisY;
+                if(iTop <= 0 ){
+                    iTop = 0;
+                }
+                if(iTop >= oContainer.offsetHeight - oScrollBtn.offsetHeight){
+                    iTop = oContainer.offsetHeight - oScrollBtn.offsetHeight;
+                }
+                oScrollBtn.style.top = iTop + 'px';
+
+                var fScale =  iTop / (oContainer.offsetHeight - oScrollBtn.offsetHeight);
+
+                oContent.style.top = -(oContent.offsetHeight - oContainer.offsetHeight) * fScale + 'px';
+                return false;
+            };
+            document.onmouseup = function(){
+                document.onmousemove = null;
+                document.onmouseup = null;
+            };
+        };
+    </script>
+</body>
+</html>

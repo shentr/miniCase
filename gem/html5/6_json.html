@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--
+json：javascript object notation
+
+www.json.org
+下载json2.js
+-->
+
+<script src="json2.js"></script>
+    <script>
+        var person = {
+            name : "zhangsan",
+            age : 20,
+            father : {
+                name : "zhangxx",
+                age : 50
+            }
+        };
+
+        console.log(person);
+
+        var str = JSON.stringify(person);
+        console.log(str);
+
+        var str2 = '{"name": "lisi", "age":18}';
+        console.log(str2);
+        var obj2 = JSON.parse(str2);
+        console.log(obj2);
+
+
+
+    </script>
+
+
+<?php
+
+
+    echo "asdfasdf";
+?>
+
+</body>
+</html>

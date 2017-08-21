@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            height: 2000px;
+        }
+        #div1{
+            width: 100px;
+            height: 100px;
+            background: #ff0000;
+            /*position: fixed;!*固定定位，相对于浏览器*!*/
+            /*left: 10px;*/
+            /*top: 300px;*/
+            position: absolute;
+            left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1"></div>
+
+    <script>
+        var oDiv = document.getElementById("div1");
+        window.onscroll = function(){
+            //console.log(document.documentElement.scrollTop);         ///一般为0，整个document scroll位置
+            //console.log( document.body.scrollTop);                  ///scroll位置
+            var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            //var scrollTop = document.body.scrollTop;
+            console.log(scrollTop)
+            oDiv.style.top = scrollTop + 300 + "px";
+            console.log(oDiv.style.top)
+        }
+
+        //number string boolean null undefined
+//        var a = document.getElementById("asdfsadf");
+//        console.log(a);//null
+//        var b;
+//        console.log(b);//undefined
+//        console.log(a == b);
+//        console.log(a === b);
+//        console.log(typeof a);
+//        console.log(typeof(b));
+//        undefined
+//        if(100){
+//            console.log("true");
+//        }else{
+//            console.log("false");
+//        }
+    </script>
+<div>ah</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

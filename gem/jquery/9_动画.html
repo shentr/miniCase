@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #div1{
+            width: 200px;
+            height: 200px;
+            background: #ff0000;
+        }
+    </style>
+</head>
+<body>
+ <input type="button" id="hide" value="hide"/>
+ <input type="button" id="show" value="show"/>
+ <input type="button" id="toggle" value="toggle"/>
+ <input type="button" id="animate" value="anmiate"/>
+ <input type="button" id="isAnimate" value="isAnimate"/>
+ <input type="button" id="stop" value="stop"/>
+ <input type="button" id="slide" value="slide"/>
+
+ <div id="div1">
+
+    </div>
+ <div id="divx">
+hhh
+ </div>
+<script src="jquery-1.12.4.js"></script>
+ <script src="jquery.easing.1.3.js"></script>
+
+<script>
+    $('#hide').on('click',function(){
+//        $('#div1').fadeTo(300,0.6);
+        $('#div1').hide(2000);
+    });
+    $('#show').on('click',function(){
+//        $('#div1').show(3000, function () {
+//           // alert('haha');
+//        });
+//        alert('haha');
+        $('#div1').show(2000);
+
+    });
+
+    $('#toggle').on('click',function(){
+        $('#div1').toggle(300);
+    });
+
+    $('#animate').on('click',function(){
+//        $('#div1').animate({
+//            width:900,
+//            opacity:0.5
+//        },4000);
+        $('#div1').animate({
+            height:500
+        },2000, "easeOutBounce",function(){
+
+        });
+    });
+    $("#isAnimate").on('click',function(){
+        $('div:animated').css('background',"green");
+    });
+    $("#stop").on('click',function(){
+        $('#div1').stop(false,true);
+    });
+    $("#slide").on('click',function(){
+        //$('#div1').slideDown();
+        $('#div1').slideToggle();
+
+    });
+
+    var a = {
+        name:'lisi',
+        age:10
+    }
+    var b = {
+        school:'黑大',
+        age:20
+    }
+    console.log($.extend(a,b));
+
+</script>
+
+
+</body>
+</html>

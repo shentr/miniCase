@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #container{
+            width: 125px;
+            height: 125px;
+            margin: 200px auto;
+            position: relative;
+            transform-style: preserve-3d;
+            //transition: transform 1s linear;
+            perspective: 1000px;
+            perspective-origin: 50% -100%;
+        }
+        #container img{
+            position: absolute;
+            transition: transform 1s linear;
+        }
+    </style>
+</head>
+<body>
+    <div id="container"></div>
+
+    <script>
+
+
+        var count = 0;
+        for(var i=0; i<9; i++){
+            var oImg = new Image();
+            oImg.onload = function(){
+                count++;
+                if(count == 9){
+                    loadSuccess();
+                }
+            };
+            oImg.src = "img/" + (i + 1) + ".jpg";
+
+            oContainer.appendChild(oImg);
+        }
+        function loadSuccess(){
+            var aImg = oContainer.getElementsByTagName("img");
+            for(var i=0; i<aImg.length; i++){
+                aImg[i].style.transitionDelay = i * 100 +  "ms";
+                aImg[i].style.transform = "rotateY(" + i * 40 + "deg) translateZ(180px)";
+            }
+        }
+
+
+
+
+        /*var oContainer = document.getElementById("container");
+        var html = "";
+        for(var i=0; i<9; i++){
+            html += "<img src='img/"+ (i + 1) +".jpg'>";
+        }
+        oContainer.innerHTML = html;
+        var aImg = oContainer.getElementsByTagName("img");
+
+        setTimeout(function(){
+            for(var i=0; i<aImg.length; i++){
+                aImg[i].style.transitionDelay = i * 100 +  "ms";
+                aImg[i].style.transform = "rotateY(" + i * 40 + "deg) translateZ(180px)";
+            }
+        }, 10);
+
+
+
+        var num = 1;
+        oContainer.onclick = function(){
+            this.style.transform = "rotateY(" + 40 * num + "deg)";
+            num++;
+        }();*/
+
+    </script>
+</body>
+</html>
+
+<!--
+预加载
+懒加载
+
+
+
+
+
+-->

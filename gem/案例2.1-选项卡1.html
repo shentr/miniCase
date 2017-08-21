@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+
+        #container{
+            width: 400px;
+            height: 200px;
+
+            margin: 50px auto;
+        }
+        #menu{
+            height: 30px;
+        }
+
+        #menu li{
+            float: left;
+            width: 100px;
+            height: 30px;
+            background: #ccc;
+            margin-right: 10px;
+            text-align: center;
+            line-height: 30px;
+        }
+
+        #content{
+            background: #ccc;
+            height: 170px;
+            border-top: 1px solid #000;
+
+        }
+        #menu .selected{
+            background: #000;
+            color:#fff;
+        }
+
+    </style>
+</head>
+<body>
+
+<div id="container">
+    <ul id="menu">
+        <li class="selected">js</li>
+        <li>html</li>
+        <li>css</li>
+    </ul>
+    <div id="content">
+
+    </div>
+</div>
+
+<script>
+    var data = [11111111,22222222,33333333];
+
+    var oMenu = document.getElementById('menu');
+    var aLi = oMenu.children; //oMenu.getElementsByTagName('li');
+
+    var oContent = document.getElementById('content');
+    oContent.innerHTML = data[0];
+
+    for(var i=0; i<aLi.length; i++){
+        aLi[i].index = i;
+        aLi[i].onclick = function(){
+            for(var j=0; j<aLi.length; j++){
+                aLi[j].className = '';
+            }
+            this.className = 'selected';
+            oContent.innerHTML = data[this.index];
+        };
+    }
+
+
+</script>
+
+</body>
+</html>

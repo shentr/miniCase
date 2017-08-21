@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body{
+            height: 2000px;
+        }
+        p { margin-left:10px; }
+        #div1{
+            width: 200px;
+            height: 50px;
+            background: #ff0000;
+            overflow: scroll;
+        }
+    </style>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+</head>
+<body>
+<p>Hello</p>
+<p>2nd Paragraph</p>
+
+<div id="div1">
+    哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+    哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+</div>
+<script>var p = $("p:last");
+var offset = p.offset();
+
+console.log(offset);
+
+console.log("left: " + offset.left + ", top: " + offset.top);
+    $(window).on('scroll',function(){
+
+        console.log($(window).scrollTop());
+    })
+
+</script>
+</body>
+</html>

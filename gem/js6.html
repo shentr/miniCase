@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <script>
+        /*function aa(str){//形参
+            alert(str);
+        }*/
+
+//        aa('hoho');//实参
+
+        function sayHi(name, age, sex){
+            //console.log(name + ' 的年龄是： ' + age + '，他的性别是：' + sex + '  ' + arguments[3]);
+            console.log(arguments[0]);
+            console.log(arguments[1]);
+            console.log(arguments[2]);
+            console.log(arguments[3]);
+        }
+
+//        sayHi('lisi', 34, 'male', 'haha');
+
+        aa();
+
+        /*function aa(){//函数声明
+                console.log('haha');
+        }*/
+        var aa = function (){//函数表达式
+            console.log('haha');
+        };
+
+
+
+
+            function aa(a, b){
+                var c = a + b;
+                return c;
+            }
+
+
+        var d = aa(3,4);
+
+        alert(d);
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

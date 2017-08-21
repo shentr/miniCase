@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+       /* #div1 > div{ !* 亲子代选择器  有兼容性问题*!
+
+        }
+        #div1 div{!* 后代选择器 *!
+
+        }
+        #div1.aa{!* 多类选择器 *!
+
+        }*/
+
+    </style>
+</head>
+<body>
+    <button id="btn">click</button>
+
+    <div id="div1" class="aa">div1
+        <div id="div2">div2</div>
+    </div>
+
+    <ul id="ul1">
+        <li >001</li>
+        <li class="aa">002</li>
+        <li>003</li>
+        <li>004</li>
+    </ul>
+
+
+
+
+
+    <script src="jquery-1.12.4.js"></script>
+    <script>
+        $(function(){
+            /*console.log($("#div1"));
+            var oDiv1 = document.getElementById('div1');
+            console.log($(oDiv1).css("background", "red"));
+            $("div,p")*/
+
+
+//            $("li.aa + li").css("background", "red");
+//            $("#ul1 li:odd").css("background", "red");
+//            $("#ul1 li:last").css("background", "red");
+//            $("#ul1 li:lt(3)").css("background", "red");
+            /*$("#ul1 li:not(.aa)").css("background", "red");
+
+            $("#btn").on("click", function(){
+                $("#div1:target").css("background", "red");
+            });*/
+
+            $("#ul1 li:contains(03)").css("background", "red");
+            $("li[class=aa]")
+        });
+        /*$(document).ready(function(){
+
+        });*/
+
+
+
+    </script>
+
+</body>
+</html>

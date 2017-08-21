@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        body{
+            font-size:16px;
+        }
+        table{
+            border:1px solid black;
+            border-collapse:collapse;
+            width:400px;
+        }
+        table td,th{
+            width:50%;
+            border:1px solid black;
+            height:30px;
+        }
+        tbody th{
+            background-color:#abc;
+        }
+    </style>
+</head>
+<body>
+
+
+<table>
+    <thead>
+    <tr>
+        <th colspan="2"> 鼠标点击表格就可以编辑</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <th>学号</th>
+        <th>姓名</th>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td class="editable">张三</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td class="editable">李四</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td class="editable">王五</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td class="editable">赵六</td>
+    </tr>
+    </tbody>
+</table>
+
+    <script src="../../jquery-1.12.4.js"></script>
+
+    <script>
+        $('.editable').on('click',function(){
+            //console.log($(this).has('input').size());
+           //console.log( $(this).find('input'));
+            //如果没有input 才执行下边操作
+            if($(this).has('input').size() == 0){
+                var $input = '<input type="text" />';
+                var value =       $(this).html();
+                $(this).html($input).find('input').val(value).trigger('focus');
+            }
+            /*if($(this).has('input').size() == 0){
+                var $input = $('<input type="text"/>');
+                $input.css('border','none').val($(this).html());
+                $(this).empty().append($input);
+                $input.trigger('focus');
+            }*/
+
+        });
+    </script>
+
+</body>
+</html>

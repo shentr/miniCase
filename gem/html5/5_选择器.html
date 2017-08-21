@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .aa{
+            background: #ff0000;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn">click</button>
+    <div id="div1">div1</div>
+    <ul id="ul1">
+        <li>001</li>
+        <li>002</li>
+        <li class="aa">003</li>
+    </ul>
+
+    <input type="text" name="username">
+
+    <script>
+        /*var oDiv1 = document.getElementById("div1");
+        oDiv1.className = "aa";
+
+        var oUl = document.getElementById("ul1");
+        var aLi = oUl.getElementsByClassName("aa");//兼容性问题
+//        console.log(aLi);
+
+        var aLi2 = oUl.getElementsByTagName("li");
+        for(var i=0; i<aLi2.length; i++){
+            if(aLi2[i].className == "aa"){
+                console.log(aLi2[i]);
+            }
+        }
+
+        var oUn = document.getElementsByName("username");//兼容性问题
+        console.log(oUn);*/
+
+//        console.log(oDiv.classList.remove('bb'));
+//        oDiv.className = "cc";
+//        console.log(oDiv.className);
+
+//        var aa = document.querySelectorAll(".aa");
+//        console.log(aa);
+
+
+        var oDiv = document.querySelector("#div1");
+        var oBtn = document.querySelector("#btn");
+        oBtn.addEventListener("click", function(){
+            oDiv.classList.toggle("aa");
+        }, false);
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

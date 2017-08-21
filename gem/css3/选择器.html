@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div1{
+            width: 200px;
+            height: 200px;
+            background: #cccccc;
+        }
+        #div1:after{
+            content: 'haha';
+            background: #ff0000;
+            display: block;
+        }
+        p{
+            width: 200px;
+            height: 200px;
+            background: #ccc;
+        }
+        p:first-line{
+            background: #ff0000;
+        }
+        ul li:nth-child(1){
+            background: #ff0000;
+        }
+        #div2 p:nth-child(1){
+            background: #ff0000;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">
+
+    </div>
+
+    <p>
+        哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+    </p>
+
+    <ul>
+        <li>item 1</li>
+        <li>item 2</li>
+        <li>item 3</li>
+    </ul>
+
+    <div id="div2">
+        <h1>haha</h1>
+        <p>hehe</p>
+        <h1>hoho</h1>
+    </div>
+</body>
+</html>

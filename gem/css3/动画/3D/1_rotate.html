@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+        }
+        #div1{
+            border: 2px dashed #000;
+            margin: 100px auto;
+            perspective:  100px;
+        }
+        #div2{
+            background: #ff0000;
+            transform: rotate3d(0, 0, 1, 45deg) translateZ(10px);
+            transform-style: preserve-3d;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">
+        <div id="div2">div</div>
+    </div>
+</body>
+</html>

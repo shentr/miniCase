@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <button id="btn">clone</button>
+    <ul id="ul1">
+        <li>item 1 <span>haha</span></li>
+        <li>item 2</li>
+
+    </ul>
+    <script>
+        var oBtn = document.getElementById('btn');
+        var oUl1 = document.getElementById('ul1');
+        oBtn.onclick = function(){
+            var oFirstLi = oUl1.children[0];
+            /*var oLi = document.createElement('li');
+            oLi.innerHTML = 'item 1';*/
+            ///var oLi = oFirstLi.cloneNode(true); ///true递归clone,否则只clone<li><li>
+            var oLi = oFirstLi;             ///如果被插入的节点已经存在于当前文档的文档树中,则那个节点会首先从原先的位置移除,然后再插入到新的位置. http://www.w3school.com.cn/tiy/t.asp?f=jsref_node_appendchild2
+            oUl1.appendChild(oLi);
+        };
+    </script>
+</body>
+</html>

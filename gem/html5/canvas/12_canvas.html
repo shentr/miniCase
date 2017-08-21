@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body{
+            background: #000;
+        }
+        #canvas1{
+            background: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas1" width="400" height="300">
+    </canvas>
+
+    <script>
+        var oCanvas = document.getElementById('canvas1');
+
+        var ctx = oCanvas.getContext('2d');
+
+//        ctx.beginPath();
+//        ctx.lineWidth = 5
+//        ctx.moveTo(50,50);
+//        ctx.lineTo(80,200);
+//        ctx.lineTo(200,60);
+//        ctx.closePath();
+
+        //ctx.lineTo(50,50);
+
+        //ctx.strokeStyle = "red";
+//        ctx.fillStyle = "green";
+        //        ctx.fill();
+
+        //ctx.arc(200, 150, 50, 0, 2*Math.PI, false);
+
+        var oImg = new Image();
+        oImg.onload = function(){
+            ctx.drawImage(oImg,30,50);
+            ctx.stroke();
+
+        }
+        oImg.src="home.png";
+
+
+
+
+
+    </script>
+
+</body>
+</html>

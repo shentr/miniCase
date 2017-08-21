@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /*#div2~div{*/
+            /*background: #ff0000;*/
+        /*}*/
+        /*input[name$=name]{*/
+            /*background: #ff0000;*/
+        /*}*/
+        /*div[class^="a"]{*/
+            /*background: #ff0000;*/
+        /*}*/
+        /*#ul1 li:last-child{!*伪类选择器*!*/
+            /*background: #ff0000;*/
+        /*}*/
+        #div6{
+            width: 100px;
+            border: 1px solid #000;
+        }
+        #div6::first-letter{/*伪元素选择器*/
+            background: #ff0000;
+        }
+        input[name=username]:focus{
+            background: #ff0000;
+        }
+        #ul1 li:not(.aa){
+            background: #ff0000;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">div1</div>
+    <div id="div2">div2</div>
+    <div id="div3">div3</div>
+    <div id="div4">div4</div>
+
+    <form action="">
+        用户名：<input type="text" name="username">
+        用户名：<input type="text" name="username1">
+        密码：<input type="password">
+        
+    </form>
+
+    <div class="a-test">1</div>
+    <div class="b-test">2</div>
+    <div class="c-test">3</div>
+    <div class="atest">4</div>
+
+    <div id="div5">div5</div>
+
+    <ul id="ul1">
+        <li>01</li>
+        <li class="aa">02</li>
+        <li>03</li>
+        <li>04</li>
+        <li>05</li>
+    </ul>
+    <div id="div6">
+        asdfas dfsad fsadfa sdfsa dfsadfs adfsadfs adfsadfsadfsadfasdfsadfasdsdfsadfasd
+    </div>
+</body>
+</html>

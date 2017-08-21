@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #div1{
+            width: 300px;
+            height: 300px;
+            background: #ff0000;
+        }
+        #div2{
+            width: 100px;
+            height: 100px;
+            background: #00ff00;
+        }
+    </style>
+    <script src="jquery-1.12.4.js"></script>
+
+</head>
+<body>
+<div id="div1">
+
+    <div id="div2">div2</div>
+</div>
+<ul id="ul1">
+    <li>001</li>
+    <li>002</li>
+    <li>003</li>
+    <li>004</li>
+</ul>
+<input type="button" value="click"/>
+
+
+<input type="text" id="user"/>
+
+<script>
+
+    /*$("#div1").click(function(){
+        alert("aa");
+    });*/
+
+    /*$("#div1").on('click',function(){
+        alert("aa");
+    });*/
+
+
+    /*$(":button").click(function(){
+        $("#ul1").append("<li>oooo</li>");
+    });*/
+    /*$("li").on('click',function(){
+        //alert(this.innerHTML);
+        alert($(this).html());
+    });*/
+    /*$("#ul1").on('click','li',function(){
+
+        alert($(this).html());
+    });*/
+
+   /* $("#ul1").hover(function(){
+        console.log("in");
+    },function(){
+        console.log("out");
+    });*/
+
+
+    /*$("#div1").on('mouseover', function () {
+        console.log('div1 over');
+    }).on('mouseout', function () {
+        console.log('div1 out');
+    })
+
+    $("#div2").on('mouseover', function () {
+        console.log('div2 over');
+    }).on('mouseout', function () {
+        console.log('div2 out');
+    })*/
+    /*var fn = function () {
+        console.log('div1 over');
+    }*/
+//    var b = function () {
+//        console.log('div1 over');
+//    }
+
+    /*$("#div1").on('mouseenter', fn).on('mouseleave', function () {
+        console.log('div1 out');
+    })
+
+    $("#div2").on('mouseenter', function () {
+        console.log('div2 over');
+        $("#div1").off('mouseenter',fn);
+
+    }).on('mouseleave', function () {
+        console.log('div2 out');
+    })
+    */
+
+    /*$("#user").on('focus',function(){
+        $(this).val("haha");
+    });
+    $(":button").on('click',function(){
+        $("#user").triggerHandler('focus');
+       // $("#user").trigger('focus');
+
+    });*/
+
+    $(document).on('keydown',function(e){
+        console.log(e.which);
+    });
+</script>
+
+
+</body>
+</html>

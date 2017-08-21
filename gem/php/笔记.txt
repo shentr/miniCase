@@ -1,0 +1,35 @@
+CI：php的MVC框架
+M（模型model）：与数据库打交道的，一般情况下数据库里面的一张表对应一个Model，在里面对应该表的增删改查的操作
+V（视图view）：用户看到的界面，其中很多数据是从数据库读取的
+C（控制器controller）：是M与V之间的桥梁，接收V发过来的请求、调用M的操作数据库的方法、接收M的返回值、把结果显示到V上
+
+去官网上下载相应的压缩包，其中application、system、index.php放到项目的根目录中，启动服务器，如果看到欢迎界面，说明成功。
+
+application文件夹中：
+config：配置信息
+controllers：控制器层
+models：模型层
+views：视图层
+
+system文件夹：系统文件，一般情况下不需要修改
+index.php 入口文件
+
+
+controller:  class User extends CI_Controller，如果不指定方法默认进入index方法
+
+autoload.php:
+	$autoload['libraries'] = array('database', 'session');
+	$autoload['helper'] = array('url'); <?php echo site_url();?>
+config.php:
+	$config['index_page'] = '';
+database.php
+	$db['default']['hostname'] = 'localhost';
+	$db['default']['username'] = 'root';
+	$db['default']['password'] = '';
+	$db['default']['database'] = 'ci10';
+
+在项目的根目录下：.htaccess
+
+
+
+

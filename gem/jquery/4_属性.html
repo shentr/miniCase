@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #div1{
+            height: 200px;
+            padding: 20px;
+            border:5px solid #000;
+            margin:20px;
+        }
+    </style>
+    <script src="jquery-1.12.4.js"></script>
+
+</head>
+<body>
+<div id="div1" aa="bb" >aaa</div>
+<input type="text" value="aaa" id="user"/>
+
+<script>
+    //自定义属性
+    //$("#div1").attr("aa","ccc");
+   //$("#div1").prop("id","ccc");
+   // console.log($("#div1").prop("aa"));
+    //console.log($("#div1").prop("id"));
+    //$("#div1").removeAttr('aa');
+
+
+    //$("#user").val('bbbb').css("background","red").attr("aa","kkk");
+  //  $("#div1").removeClass("aa");
+    /*$("#div1").css({
+     "background":"red",
+     "border":"1px solid #000"
+     });*/
+
+    console.log($("#div1").outerHeight(true));
+</script>
+
+</body>
+</html>

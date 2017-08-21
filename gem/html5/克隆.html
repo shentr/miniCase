@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <button id="btn">clone</button>
+    <div id="div1">
+        <h1>haha</h1>
+    </div>
+    <script>
+        var oBtn = document.querySelector('#btn');
+        oBtn.onclick = function () {
+            var oDiv1 = document.querySelector('#div1');
+            var newNode = oDiv1.cloneNode(true);
+            document.body.appendChild(newNode);
+        };
+
+        var obj1 = {
+            name: 'lisi',
+            age: 23,
+            friend: {
+                name: 'zhangsan'
+            }
+        };
+
+        var obj2 = clone(obj1);
+
+        obj2.friend.name = 'wangwu';
+
+        console.log(obj1.friend.name);
+
+        function clone(obj) {
+            var newObj = {};
+            for(var prop in obj){
+                //arguments.callee: 是对当前函数的引用
+                newObj[prop] = typeof obj[prop] == 'object'? arguments.callee(obj[prop]) : obj[prop];
+            }
+            return newObj;
+        }
+    </script>
+</body>
+</html>

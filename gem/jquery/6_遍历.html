@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="jquery-1.12.4.js"></script>
+
+</head>
+<body>
+<ul id="ul1">
+    <li>111</li>
+    <li >222</li>
+    <li class="aa">333</li>
+    <li>444</li>
+</ul>
+<ul class="ul1">
+    <li>111</li>
+    <li >222</li>
+    <li class="aa">333</li>
+    <li>444</li>
+</ul>
+<p>pppp</p>
+
+
+<ul class="first">
+    <li class="foo">list item 1
+        <ul>
+            <li>1111</li>
+        </ul>
+    </li>
+    <li>list item 2</li>
+    <li class="bar">list item 3</li>
+</ul>
+<ul class="second">
+    <li class="foo">list item 1</li>
+    <li>list item 2</li>
+    <li class="bar">list item 3</li>
+</ul>
+<script>
+    //$("#ul1 li").eq(1).css("background","red");
+    //$("li").filter(".aa").css("background","red");
+    //$("li").first().css("background","green");
+    //$("li").not(".aa").css("background","green");
+   // $("li").add("p").css("background","green");
+    //$("li,p")
+    //$("#ul1").children(".aa").nextAll().andSelf().css("background","green");
+    //$(".ul1").contents().css("background","green");
+
+    /*$("#ul1 li").each(function(index,elem){
+
+        console.log(index+"aa"+$(elem).html());
+
+    });
+
+*/
+
+   // $("#ul1").children(".aa").nextAll().end().css("background","green");
+
+
+    /*$('ul.first').find('.foo').css('background-color', 'red')
+            .end().children(".bar").css('border', '4px solid green');
+*/
+    //$('ul.first').css('background-color', 'red');
+
+    //$(".first").children().css("border","1px solid #000");
+    $(".first").find('li').css("border","1px solid #000");
+
+</script>
+</body>
+</html>

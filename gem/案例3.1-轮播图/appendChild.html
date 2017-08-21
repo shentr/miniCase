@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <button id="btn">add</button>
+    <ul id="ul1">
+        <li>01</li>
+        <li>02</li>
+        <li>03</li>
+        <li>04</li>
+    </ul>
+    <script>
+        var oUl=document.getElementById("ul1");
+        var btn=document.getElementById("btn");
+        btn.onclick=function () {
+            var oLi=document.createElement("li");
+            oLi.innerHTML=Math.PI * Math.random();
+            oUl.appendChild(oLi);
+        }
+    </script>
+</body>
+</html>

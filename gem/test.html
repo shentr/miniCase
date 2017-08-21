@@ -1,0 +1,254 @@
+<!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+
+    function trigger(param){
+        param.name = 'wangwu';
+    }
+
+    function  aa() {
+        var opts = {
+            name: 'lisi'
+        };
+
+        trigger(opts);
+
+        console.log(opts);
+    }
+    aa();
+
+
+
+
+</script>
+</body>
+</html>-->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style type="text/css">
+        #login
+        {
+            display:none;
+            border:1em solid #3366FF;
+            height:30%;
+            width:50%;
+            position:absolute;/*让节点脱离文档流,我的理解就是,从页面上浮出来,不再按照文档其它内容布局*/
+            top:24%;/*节点脱离了文档流,如果设置位置需要用top和left,right,bottom定位*/
+            left:24%;
+            z-index:2;/*个人理解为层级关系,由于这个节点要在顶部显示,所以这个值比其余节点的都大*/
+            background: white;
+        }
+        #over
+        {
+            display: none;
+            width: 100%;
+            height: 100%;
+            opacity:0.8;/*设置背景色透明度,1为完全不透明,IE需要使用filter:alpha(opacity=80);*/
+            filter:alpha(opacity=80);
+            position:absolute;
+            top:0;
+            left:0;
+            z-index:1;
+            background: silver;
+        }
+    </style>
+</head>
+<body>
+<button id="alert"></button>
+<div id="login">
+    <a href="javascript:hide()">关闭</a>
+    <div>这里是关闭弹窗的内容</div>
+</div>
+<div id="over"></div>
+</body>
+</html>
+
+<script type="text/javascript">
+    var login = document.getElementById('login');
+    var over = document.getElementById('over');
+    function show()
+    {
+        login.style.display = "block";
+        over.style.display = "block";
+    }
+    function hide()
+    {
+        login.style.display = "none";
+        over.style.display = "none";
+    }
+</script>
+
+
+
+<!--
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Window对象</title>
+    <meta charset="utf-8">
+</head>
+<body>
+<a href="http://www.baidu.com">百度一下</a>
+<button type="button" id="open">打开弹出层</button>
+<div id="cover" style="display: none;position: fixed;width: 100%;height: 100%;top:0px;left:0px;background: gray;">    &lt;!&ndash; 通过遮罩层遮住背景 &ndash;&gt;
+    <div style="background: lightblue;border:1px solid green;" id="toast">     &lt;!&ndash; 设置display属性为none以隐藏内容       &ndash;&gt;
+        　　<p>这里是弹出层内容</p>
+        　 <button type="button" id="close">关闭弹出层</button>
+        　　</div>
+</div>
+<script type="text/javascript">
+    var toast = document.getElementById("toast");
+    var cover = document.getElementById("cover");
+    document.getElementById("open").onclick = function(e){      &lt;!&ndash;  定义点击事件显示隐藏内容     &ndash;&gt;
+        cover.style.display = "block";
+        toast.style.position = "fixed";
+        var winWidth = window.innerWidth;
+        var winHeight = window.innerHeight;
+        var targetWidth = toast.offsetWidth;
+        var targetHeight = toast.offsetHeight;
+        toast.style.top = (winHeight - targetHeight) / 2 + "px";
+        toast.style.left = (winWidth - targetWidth) / 2 + "px";
+    }
+    document.getElementById("close").onclick = function(e){        &lt;!&ndash;   将显示的内容再次隐藏     &ndash;&gt;
+        cover.style.display = "none";
+    }
+</script>
+</body>
+</html>-->
+
+
+<!--<html>
+<body></body>
+<script>
+    var Floater = (function(){
+        var me = Class.create();
+        me.prototype = {
+            initialize: function(options) {
+                this._fS = BindAsEventListener(this, this.addjustPosition);
+                this.setOptions(options);
+            },
+            setOptions: function(options) {
+                this.options = options || {};
+                this._id = options.id;
+                this._mark = 'mark';
+            },
+            show: function(html,options) {
+                options = options || {};
+                if(!this._cover){
+                    this._createCover();
+                }
+                if(!this._floater){
+                    this._createFloater(html);
+                }
+                if(options.saveOpt){
+                    this._saveOption = options.saveOpt;
+                    this.bindSaveEvent();
+                }
+                this._bindScrollEvent();
+                this.addjustPosition();
+                this._floater.style.display = '';
+                this._cover.style.display = '';
+                this.isShow = true;
+            },
+            insert: function(html,opts,att){
+                var _e = document.createElement("div"), _t;
+                _e.innerHTML = html;
+                for(var k in opts){
+                    _e[k] = opts[k];
+                }
+                _t = this._floater.querySelector('['+att+']');
+                if(_t){
+                    _t.appendChild(_e);
+                }
+            },
+            getFloater: function(){
+                if(this._floater){
+                    return this._floater;
+                }
+            },
+            //遮罩层
+            _createCover: function() {
+                var newMask = document.createElement("div");
+                newMask.id = this._mark;
+                newMask.style.position = "absolute";
+                newMask.style.zIndex = "100";
+                _scrollWidth = Math.max(document.body.scrollWidth,document.documentElement.scrollWidth);
+                _scrollHeight = Math.max(document.body.scrollHeight,document.documentElement.scrollHeight);
+                newMask.style.width = _scrollWidth + "px";
+                newMask.style.height = _scrollHeight + "px";
+                newMask.style.top = "0px";
+                newMask.style.left = "0px";
+                newMask.style.background = "#000";
+                newMask.style.filter = "alpha(opacity=50)";
+                newMask.style.opacity = "0.50";
+                newMask.style.display = 'none';
+                document.body.appendChild(newMask);
+                this._cover = newMask;
+            },
+            //新弹出层
+            _createFloater: function(html) {
+                var newDiv = document.createElement("div");
+                newDiv.id = this._id;
+                newDiv.style.position = "absolute";
+                newDiv.style.zIndex = "9999";
+                newDivWidth = 400;
+                newDivHeight = 200;
+                newDiv.style.width = newDivWidth + "px";
+                newDiv.style.height = newDivHeight + "px";
+                newDiv.style.top = (document.body.scrollTop + document.body.clientHeight/2 - newDivHeight/2) + "px";
+                newDiv.style.left = (document.body.scrollLeft + document.body.clientWidth/2 - newDivWidth/2) + "px";
+                newDiv.style.padding = "5px";
+                newDiv.style.display = 'none';
+                newDiv.innerHTML = html;
+                document.body.appendChild(newDiv);
+                this._floater = newDiv;
+            },
+            //弹出层滚动居中
+            addjustPosition: function() {
+                this._floater.style.top = (document.body.scrollTop + document.body.clientHeight/2 - newDivHeight/2) + "px";
+                this._floater.style.left = (document.body.scrollLeft + document.body.clientWidth/2 - newDivWidth/2) + "px";
+            },
+            bindSaveEvent: function() {
+                this._saveElem = this._floater.querySelector('['+this._saveOption.elem+']');
+                if(this._saveElem){
+                    addEventHandler(this._saveElem, "click", this._saveOption.handler);
+                }
+            },
+            _bindScrollEvent: function() {
+                addEventHandler(window, "scroll", this._fS);
+            },
+            hide: function() {
+                this.isShow = false;
+                this.destory();
+            },
+            destory: function() {
+                removeEventHandler(window, "scroll", this._fS);
+                if(this._saveElem){
+                    removeEventHandler(this._saveElem, "click", this._saveOption.handler);
+                }
+                if (this._cover){
+                    document.body.removeChild(this._cover);
+                }
+                if (this._floater){
+                    document.body.removeChild(this._floater);
+                }
+                this._cover = null;
+                this._floater = null;
+            }
+        };
+        return me;
+    })();
+</script>
+</html>-->
+
+

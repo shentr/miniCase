@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <script>
+        var obj1 = {
+            name : "zhangsan",
+            age : 20,
+            father : {
+                name : "zhangxx",
+                age : 50
+            }
+        };
+
+//        var obj2 = obj1;
+        /*var obj2 = {};*/
+        /*obj2.name = obj1.name;*/
+        /*obj2.age = obj1.age;*/
+
+        /*obj1.name = "lisi";*/
+
+        /*console.log(obj2.name);*/
+
+        //作用是完成拷贝obj，返回新的对象
+        function clone(obj){
+            var newObj = {};
+            for(var p in obj){
+                if(typeof(obj[p]) == "object"){
+                    newObj[p] = clone(obj[p]);
+                }else{
+                    newObj[p] = obj[p];
+                }
+            }
+            return newObj;
+        }
+
+//        var obj2 = clone(obj1);
+//        obj1.father.name = "zhangyy";
+//        console.log(obj2.father);
+
+        var str1 = JSON.stringify(obj1);
+        var obj2 = JSON.parse(str1);
+        obj1.father.name = "zhangyy";
+
+        console.log(obj2);
+
+
+
+//        eval("while(true){alert(1);}");
+        JSON.parse("alert(123)");
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        #container{
+            width: 680px;
+            height: 344px;
+            margin: 100px auto;
+            overflow: hidden;
+            position: relative;
+        }
+        #content{
+            /*width: 2720px;*/
+            height: 344px;
+            position: absolute;
+            left: 0;
+        }
+        #content img{
+            float: left;
+        }
+        #tab{
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+        }
+        #tab li{
+            width: 20px;
+            height: 20px;
+            background: #000000;
+            color: #fff;
+            text-align: center;
+            line-height: 20px;
+            margin-right: 5px;
+            float: left;
+            cursor: pointer;
+        }
+        #tab li.selected{
+            background: orange;
+        }
+        #arrows{
+            position: absolute;
+            left: 10px;
+            bottom: 10px;
+        }
+        #arrows span{
+            width: 20px;
+            height: 20px;
+            float: left;
+            background: #000000;
+            color: #fff;
+            margin-right: 5px;
+            text-align: center;
+            line-height: 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="content">
+            <img src="img/1.jpg" alt="">
+            <img src="img/2.jpg" alt="">
+            <img src="img/3.jpg" alt="">
+            <img src="img/4.jpg" alt="">
+        </div>
+        <ul id="tab">
+            <!--
+            <li class="selected">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            -->
+
+        </ul>
+        <div id="arrows">
+            <span id="prev">&lt;</span>
+            <span id="next">&gt;</span>
+        </div>
+    </div>
+    <script src="jslib.js"></script>
+    <script>
+
+        var oContent = document.getElementById('content');
+        var aImg = oContent.children;
+        var oTab = document.getElementById('tab');
+        var oNext = document.getElementById('next');
+        var oPrev = document.getElementById('prev');
+
+        var sHtml = '';
+        for(var i=0; i<aImg.length; i++){
+            /*var oLi = document.createElement('li');
+            oLi.innerHTML = i+1;
+            if(i == 0){
+                oLi.className = 'selected';
+            }
+            oTab.appendChild(oLi);*/
+            sHtml += '<li '+(i==0?'class="selected"':'')+'>'+(i+1)+'</li>';
+        }
+        oTab.innerHTML = sHtml;
+
+        var oCloneImg = oContent.children[0].cloneNode();
+        oContent.appendChild(oCloneImg);
+        //console.log( aImg[0].offsetWidth);
+        oContent.style.width = aImg[0].offsetWidth * aImg.length + 'px';
+
+
+        var iNow = 0;//代表当前正在显示的图片的索引
+
+        var aLi = oTab.children;
+        for(var i=0; i<aLi.length; i++){
+            aLi[i].index = i;
+            aLi[i].onmouseover = function(){
+               changeImg(this.index);
+            };
+        }
+
+        oNext.onclick = oPrev.onclick = function(){
+            if(this == oNext){//next
+                iNow++;
+                if(iNow == aImg.length){
+                    oContent.style.left = 0;
+                    iNow = 1;
+                }
+                changeImg(iNow);
+            }else{//prev
+                iNow--;
+                if(iNow == -1){
+                    iNow = aImg.length - 1;
+                }
+                changeImg(iNow);
+            }
+        };
+
+        function changeImg(idx){
+            iNow = idx;
+            for(var i=0; i<aLi.length; i++){
+                aLi[i].className = '';
+            }
+
+            aLi[idx==aImg.length-1?0:idx].className = 'selected';
+
+            animate(oContent, {
+                left: -idx * aImg[0].offsetWidth
+            });
+        }
+
+
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #div1{
+            width: 20px;
+            height: 20px;
+            background: #ff0000;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">
+
+    </div>
+
+    <script>
+        var oDiv1 = document.getElementById('div1');
+//        oDiv1.onclick = function(){
+//            alert(111);
+//        }
+//        oDiv1.onclick = function(){
+//            alert(222);
+//        }
+
+        var fn = function(){
+                    alert(222);
+                };
+        oDiv1.addEventListener('click',fn,false);
+
+        oDiv1.removeEventListener('click',fn);
+    </script>
+</body>
+</html>

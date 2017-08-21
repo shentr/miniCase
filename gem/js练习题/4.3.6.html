@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        function star(num){
+            for(var i=1; i<=num; i++){
+                for(var k=1; k<=num-i; k++){
+                    document.write("&nbsp;");
+                }
+                for(var j=1; j<=i; j++){
+                    document.write("*&nbsp;");
+                }
+                document.write("<br>");
+            }
+
+        }
+        star(10);
+    </script>
+</body>
+</html>

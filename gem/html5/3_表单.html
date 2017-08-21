@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form action="" id="regist">
+        用户名: <input type="text" name="username" autocomplete="off" autofocus placeholder="请输入用户名"><br>
+        密码： <input type="password" autofocus><br>
+        性别： <input type="radio" name="sex">男
+        <input type="radio" name="sex">女<br>
+
+        email:<input type="email"><br>
+        url:<input type="url"><br>
+        number: <input type="number"><br>
+        range: <input type="range" name="num"><br>
+        date: <input type="date"><br>
+        search: <input type="search"><br>
+        color: <input type="color"><br>
+
+        Webpage: <input type="url" list="url_list" name="link" />
+        <datalist id="url_list">
+            <option label="W3School" value="http://www.W3School.com.cn" />
+            <option label="Google" value="http://www.google.com" />
+            <option label="Microsoft" value="http://www.microsoft.com" />
+        </datalist>
+
+        <input type="submit" value="注册">
+
+        <input type="hidden" value="">
+
+    </form>
+
+    <input type="text" form="regist">
+
+<!--
+
+http://localhost/myphp/test?username=zhangsan&password=123
+$username = $_GET('username');
+
+md5
+
+-->
+
+</body>
+</html>

@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        #nav{
+            height: 30px;
+        }
+        #nav li{
+            float: left;
+            width: 100px;
+            height: 30px;
+            background: #ccc;
+            text-align: center;
+            line-height: 30px;
+        }
+        #content{
+            width: 600px;
+        }
+
+        #content .menu .sub_menu{
+            width: 300px;
+            height: 80px;
+            float: left;
+            border-bottom: 1px dashed #ccc;
+        }
+        #content .img{
+            float: left;
+            width: 48px;
+            height: 48px;
+            margin: 10px;
+        }
+
+        #content .text{
+            float: left;
+            width: 212px;
+            height: 80px;
+            margin: 10px;
+            line-height: 20px;
+        }
+
+        #content .menu{
+            display: none;
+        }
+
+        #content .selected{
+            display: block;
+        }
+        #nav li.sel{
+            background: red;
+        }
+
+    </style>
+    <!--   引入jQuery -->
+    <script src="../../../jquery-1.12.4.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(function(){
+
+            var index = 0;
+            var timer;
+            $("#nav li").on('click',function(){
+
+                $(this).addClass('sel').siblings().removeClass('sel');
+                var $index = $(this).index();
+                //$(".nav li").index(this);
+                $(".menu").eq($index).show().siblings().hide();
+                index = $index;
+            }).hover(function(){
+                clearInterval(timer);
+            },function(){
+                run();
+            });
+
+            function run(){
+                timer =  setInterval(function(){
+                    index++;
+                    if(index == $("#nav li").size()){
+                        index =0;
+                    }
+                    $("#nav li").eq(index).trigger('click');
+                },2000);
+            }
+            run();
+
+
+        });
+    </script>
+</head>
+<body>
+    <div id="container">
+        <ul id="nav">
+            <li class="sel">111</li>
+            <li>222</li>
+            <li>333</li>
+            <li>444</li>
+            <li>555</li>
+            <li>666</li>
+        </ul>
+
+        <div id="content">
+
+            <div class="menu selected ">
+                <div class="sub_menu">
+                    <div class="img"><a><img src="images/g111124-3.jpg"></a></div>
+                    <div class="text">
+                        <a href="#">11111111</a>
+                        <p>11111111哈哈哈哈哈</p>
+                    </div>
+                </div>
+                <div class="sub_menu">
+                    <div class="img"><a><img src="images/g111124-3.jpg"></a></div>
+                    <div class="text">
+                        <a href="#">23232323</a>
+                        <p>d哈哈哈哈哈哈哈哈哈哈哈哈哈哈</p>
+                    </div>
+                </div>
+                <div class="sub_menu">
+                    <div class="img"><a><img src="images/g111124-3.jpg"></a></div>
+                    <div class="text">
+                        <a href="#">23232323</a>
+                        <p>哈哈哈哈哈哈ddddddddd</p>
+                    </div>
+                </div>
+                <div class="sub_menu">
+                    <div class="img"><a><img src="images/g111124-3.jpg"></a></div>
+                    <div class="text">
+                        <a href="#">23232323</a>
+                        <p>ddd哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈dd</p>
+                    </div>
+                </div>
+                <div class="sub_menu">
+                    <div class="img"><a><img src="images/g111124-3.jpg"></a></div>
+                    <div class="text">
+                        <a href="#">23232323</a>
+                        <p>哈哈哈哈哈哈哈哈哈哈哈哈dd</p>
+                    </div>
+                </div>
+                <div class="sub_menu">
+                    <div class="img"><a><img src="images/g111124-3.jpg"></a></div>
+                    <div class="text">
+                        <a href="#">23232323</a>
+                        <p>哈哈哈哈哈哈哈哈哈哈哈哈</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu">
+                <div class="sub_menu">
+                    <div class="img"><a><img src="images/g111124-3.jpg"></a></div>
+                    <div class="text">
+                        <a href="#">2222222</a>
+                        <p>22222222221</p>
+                    </div>
+                </div>
+                <div class="sub_menu">
+                    <div class="img"><a><img src="images/g111124-3.jpg"></a></div>
+                    <div class="text">
+                        <a href="#">23232323</a>
+                        <p>d哈哈哈哈哈哈哈哈哈哈哈哈哈哈</p>
+                    </div>
+                </div>
+                <div class="sub_menu">
+                    <div class="img"><a><img src="images/g111124-3.jpg"></a></div>
+                    <div class="text">
+                        <a href="#">23232323</a>
+                        <p>哈哈哈哈哈哈ddddddddd</p>
+                    </div>
+                </div>
+                <div class="sub_menu">
+                    <div class="img"><a><img src="images/g111124-3.jpg"></a></div>
+                    <div class="text">
+                        <a href="#">23232323</a>
+                        <p>ddd哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈dd</p>
+                    </div>
+                </div>
+                <div class="sub_menu">
+                    <div class="img"><a><img src="images/g111124-3.jpg"></a></div>
+                    <div class="text">
+                        <a href="#">23232323</a>
+                        <p>哈哈哈哈哈哈哈哈哈哈哈哈dd</p>
+                    </div>
+                </div>
+                <div class="sub_menu">
+                    <div class="img"><a><img src="images/g111124-3.jpg"></a></div>
+                    <div class="text">
+                        <a href="#">23232323</a>
+                        <p>哈哈哈哈哈哈哈哈哈哈哈哈</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu">
+                <div class="sub_menu">
+                    <div class="img"><a><img src="images/g111124-3.jpg"></a></div>
+                    <div class="text">
+                        <a href="#">333333</a>
+                        <p>d333333333哈哈</p>
+                    </div>
+                </div>
+                <div class="sub_menu">
+                    <div class="img"><a><img src="images/g111124-3.jpg"></a></div>
+                    <div class="text">
+                        <a href="#">23232323</a>
+                        <p>d哈哈哈哈哈哈哈哈哈哈哈哈哈哈</p>
+                    </div>
+                </div>
+                <div class="sub_menu">
+                    <div class="img"><a><img src="images/g111124-3.jpg"></a></div>
+                    <div class="text">
+                        <a href="#">23232323</a>
+                        <p>哈哈哈哈哈哈ddddddddd</p>
+                    </div>
+                </div>
+                <div class="sub_menu">
+                    <div class="img"><a><img src="images/g111124-3.jpg"></a></div>
+                    <div class="text">
+                        <a href="#">23232323</a>
+                        <p>ddd哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈dd</p>
+                    </div>
+                </div>
+                <div class="sub_menu">
+                    <div class="img"><a><img src="images/g111124-3.jpg"></a></div>
+                    <div class="text">
+                        <a href="#">23232323</a>
+                        <p>哈哈哈哈哈哈哈哈哈哈哈哈dd</p>
+                    </div>
+                </div>
+                <div class="sub_menu">
+                    <div class="img"><a><img src="images/g111124-3.jpg"></a></div>
+                    <div class="text">
+                        <a href="#">23232323</a>
+                        <p>哈哈哈哈哈哈哈哈哈哈哈哈</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu">
+                <div class="sub_menu">
+                    <div class="img"><a><img src="images/g111124-3.jpg"></a></div>
+                    <div class="text">
+                        <a href="#">23232323</a>
+                        <p>dddd哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈</p>
+                    </div>
+                </div>
+                <div class="sub_menu">
+                    <div class="img"><a><img src="images/g111124-3.jpg"></a></div>
+                    <div class="text">
+                        <a href="#">23232323</a>
+                        <p>d哈哈哈哈哈哈哈哈哈哈哈哈哈哈</p>
+                    </div>
+                </div>
+                <div class="sub_menu">
+                    <div class="img"><a><img src="images/g111124-3.jpg"></a></div>
+                    <div class="text">
+                        <a href="#">23232323</a>
+                        <p>哈哈哈哈哈哈ddddddddd</p>
+                    </div>
+                </div>
+                <div class="sub_menu">
+                    <div class="img"><a><img src="images/g111124-3.jpg"></a></div>
+                    <div class="text">
+                        <a href="#">23232323</a>
+                        <p>ddd哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈dd</p>
+                    </div>
+                </div>
+                <div class="sub_menu">
+                    <div class="img"><a><img src="images/g111124-3.jpg"></a></div>
+                    <div class="text">
+                        <a href="#">23232323</a>
+                        <p>哈哈哈哈哈哈哈哈哈哈哈哈dd</p>
+                    </div>
+                </div>
+                <div class="sub_menu">
+                    <div class="img"><a><img src="images/g111124-3.jpg"></a></div>
+                    <div class="text">
+                        <a href="#">23232323</a>
+                        <p>哈哈哈哈哈哈哈哈哈哈哈哈</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu">
+                <div class="sub_menu">
+                    <div class="img"><a><img src="images/g111124-3.jpg"></a></div>
+                    <div class="text">
+                        <a href="#">23232323</a>
+                        <p>dddd哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈</p>
+                    </div>
+                </div>
+                <div class="sub_menu">
+                    <div class="img"><a><img src="images/g111124-3.jpg"></a></div>
+                    <div class="text">
+                        <a href="#">23232323</a>
+                        <p>d哈哈哈哈哈哈哈哈哈哈哈哈哈哈</p>
+                    </div>
+                </div>
+                <div class="sub_menu">
+                    <div class="img"><a><img src="images/g111124-3.jpg"></a></div>
+                    <div class="text">
+                        <a href="#">23232323</a>
+                        <p>哈哈哈哈哈哈ddddddddd</p>
+                    </div>
+                </div>
+                <div class="sub_menu">
+                    <div class="img"><a><img src="images/g111124-3.jpg"></a></div>
+                    <div class="text">
+                        <a href="#">23232323</a>
+                        <p>ddd哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈dd</p>
+                    </div>
+                </div>
+                <div class="sub_menu">
+                    <div class="img"><a><img src="images/g111124-3.jpg"></a></div>
+                    <div class="text">
+                        <a href="#">23232323</a>
+                        <p>哈哈哈哈哈哈哈哈哈哈哈哈dd</p>
+                    </div>
+                </div>
+                <div class="sub_menu">
+                    <div class="img"><a><img src="images/g111124-3.jpg"></a></div>
+                    <div class="text">
+                        <a href="#">23232323</a>
+                        <p>哈哈哈哈哈哈哈哈哈哈哈哈</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu">
+                <div class="sub_menu">
+                    <div class="img"><a><img src="images/g111124-3.jpg"></a></div>
+                    <div class="text">
+                        <a href="#">23232323</a>
+                        <p>dddd哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈</p>
+                    </div>
+                </div>
+                <div class="sub_menu">
+                    <div class="img"><a><img src="images/g111124-3.jpg"></a></div>
+                    <div class="text">
+                        <a href="#">23232323</a>
+                        <p>d哈哈哈哈哈哈哈哈哈哈哈哈哈哈</p>
+                    </div>
+                </div>
+                <div class="sub_menu">
+                    <div class="img"><a><img src="images/g111124-3.jpg"></a></div>
+                    <div class="text">
+                        <a href="#">23232323</a>
+                        <p>哈哈哈哈哈哈ddddddddd</p>
+                    </div>
+                </div>
+                <div class="sub_menu">
+                    <div class="img"><a><img src="images/g111124-3.jpg"></a></div>
+                    <div class="text">
+                        <a href="#">23232323</a>
+                        <p>ddd哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈dd</p>
+                    </div>
+                </div>
+                <div class="sub_menu">
+                    <div class="img"><a><img src="images/g111124-3.jpg"></a></div>
+                    <div class="text">
+                        <a href="#">23232323</a>
+                        <p>哈哈哈哈哈哈哈哈哈哈哈哈dd</p>
+                    </div>
+                </div>
+                <div class="sub_menu">
+                    <div class="img"><a><img src="images/g111124-3.jpg"></a></div>
+                    <div class="text">
+                        <a href="#">23232323</a>
+                        <p>哈哈哈哈哈哈哈哈哈哈哈哈</p>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+</body>
+</html>

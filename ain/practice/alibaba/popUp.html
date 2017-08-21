@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>popUp</title>
+    <style>
+        #popUp-cover{
+            display:none;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            opacity:0.4;
+            filter: alpha(opacity=40);
+            z-index: 100;
+            overflow: auto;
+            position: fixed;
+            left: 0;
+            top: 0;
+        }
+        #popUp-layer{
+            display: none;
+            position: absolute;
+            left: 50%;
+            top:50%;
+            width: 0;
+            height: 0;
+            border-radius: 3%;
+            background-color: snow;
+            overflow: hidden;
+            z-index: 101;
+        }
+
+    </style>
+</head>
+
+<body>
+<button id="button">登录</button>
+<div id="popUp-cover"></div>
+<div id="popUp-layer"></div>
+
+<script>
+    var cover = document.getElementById("popUp-cover");
+    var layer = document.getElementById("popUp-layer");
+    var oContent,oTitle,oX,oConfirm;
+    var popUp = function () {
+        oTitle = document.createElement('div');
+        oTitle.style.width = '100%';
+        oTitle.style.height = '30px';
+        oTitle.style.backgroundColor = 'deepskyblue';
+        oTitle.style.color='snow';
+        oX = document.createElement('span');
+        oX.innerHTML = 'X';
+        oX.style.marginLeft = '95%';
+        oX.style.lineHeight = '30px';
+        oTitle.appendChild(oX);
+        layer.appendChild(oTitle);
+
+        oContent = document.createElement('div');
+        layer.appendChild(oContent);
+
+         oConfirm = document.createElement('button');
+        oConfirm.style.position = 'absolute';
+         oConfirm.style.left = '20%';
+         oConfirm.style.bottom='10%';
+         oConfirm.style.backgroundColor = 'deepskyblue';
+         oConfirm.style.color = 'snow';
+         oConfirm.style.borderRadius='10%';
+         oConfirm.style.textAlign='center';
+         oConfirm.innerText = '确定';
+        layer.appendChild(oConfirm);
+
+    };
+    popUp.prototype.open = function (content, width, height) {
+        oContent.innerHTML = content;
+        layer.style.width = width + "px";
+        layer.style.height = height + "px";
+        layer.style.marginLeft = -width/2 + "px";
+        layer.style.marginTop = -height/2 + "px";
+        cover.style.display = 'block';
+        layer.style.display = 'block';
+    };
+    popUp.prototype.close = function () {
+        layer.style.width = 0 + "px";
+        layer.style.height = 0 + "px";
+        cover.style.display = 'none';
+        layer.style.display = 'none';
+    };
+</script>
+
+<script>
+    var oButton = document.getElementById("button");
+    var oCover = document.getElementById("popUp-cover");
+    var login = new popUp();
+    oButton.onclick = function (){
+        login.open("<div>sfdfdf</div>","400","300");
+    };
+    oX.onclick = function () {
+        login.close();
+    }
+</script>
+</body>
+</html>

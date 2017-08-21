@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div1::after{
+            content: "aaa";
+            background: #f00;
+        }
+        #div1::before{
+            content: "bbb";
+            background: #00ff00;
+        }
+        .clearfix::before{
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        #ul1 li{
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">divdivdiv</div>
+    <ul id="ul1" class="clearfix">
+        <li>01</li>
+        <li>02</li>
+        <li>03</li>
+        <li>04</li>
+    </ul>
+    <script>
+        var oUl1 = document.getElementById("ul1");
+        console.log(oUl1.offsetHeight);
+    </script>
+</body>
+</html>

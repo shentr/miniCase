@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #container{
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            left:200px;
+            top:300px;
+        }
+
+        #container img{
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            left:0;
+            top:0;
+        }
+
+        img{
+            -webkit-transition: transform 1s ease;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="container">
+            <img class="menu" src="img/close.png" alt="">
+            <img class="menu" src="img/full.png" alt="">
+            <img class="menu" src="img/open.png" alt="">
+            <img class="menu" src="img/prev.png" alt="">
+            <img class="menu" src="img/refresh.png" alt="">
+            <img id="home" src="img/home.png" alt="">
+    </div>
+
+    <script>
+
+        var oHome = document.getElementById('home');
+        var aMenu = document.getElementsByClassName('menu');
+        var bFlag = false;
+
+        oHome.onclick = function(){
+
+            if(!bFlag){
+                this.style.WebkitTransform = 'rotate(360deg)';
+                for(var i=0; i<aMenu.length; i++){
+                    var x = -150*Math.sin(22.5*i*Math.PI/180);
+                    var y = -150*Math.cos(22.5*i*Math.PI/180);
+                    aMenu[i].style.WebkitTransform = 'translate('+x+'px,'+y+'px) rotate(360deg)';
+                }
+            }else{
+                this.style.WebkitTransform = 'rotate(0deg)';
+                for(var i=0; i<aMenu.length; i++){
+                    aMenu[i].style.WebkitTransitionDuration = '1s';
+                    aMenu[i].style.WebkitTransform = 'translate(0px,0px) rotate(0deg)';
+                }
+            }
+            bFlag = !bFlag;
+
+
+        }
+
+        for(var i=0; i<aMenu.length; i++){
+            aMenu[i].onclick = function(){
+
+                var currentTransform = this.style.transform;
+                this.style.WebkitTransitionDuration = '0.3s';
+                this.style.WebkitTransform = currentTransform +' scale(1.5)';
+                var fn = function(){
+                    this.style.WebkitTransform = currentTransform;
+                    this.removeEventListener('webkitTransitionEnd',fn);
+                }
+                this.addEventListener('webkitTransitionEnd',fn,false);
+            }
+        }
+    </script>
+
+</body>
+</html>

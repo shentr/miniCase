@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin:0;
+            padding: 0;
+        }
+        #container{
+            margin:150px;
+            width: 300px;
+        }
+        #tab span{
+            display: inline-block;
+            width: 45px;
+            height: 25px;
+            background: #888;
+            color: #ffffff;
+            text-align: center;
+            line-height: 25px;
+        }
+        #text{
+            width: 300px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <div id="tab">
+        <span id="bigger">上</span>
+        <span id="smaller">下</span>
+    </div>
+    <div id="content">
+        <textarea name="" id="text">哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈</textarea>
+    </div>
+</div>
+<script src="../../jquery-1.12.4.js"></script>
+<script>
+
+    $(function(){
+        $('#bigger').click(function(){
+            $('#text').animate({
+                scrollTop:'-=40'
+            });
+
+        });
+        $("#smaller").click(function(){
+            $('#text').animate({
+                scrollTop:'+=40'
+            });
+        });
+    });
+
+
+</script>
+
+</body>
+</html>

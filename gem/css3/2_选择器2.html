@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+/*        #ul1 li{
+            width: 100px;
+            height: 30px;
+            float: left;
+            border: 1px solid #000;
+        }
+        #ul1{
+            width: 350px;
+            border: 1px solid #000;
+            height: 400px;
+            list-style: none;
+        }
+        #ul1 li:nth-child(3n+1){
+            margin-left: 10px;
+        }
+        #ul1 li:nth-child(3n){
+            margin-right: 10px;
+        }*/
+        /*#ul1 li:nth-child(odd){
+            background: #ff0000;
+        }
+        #ul1 li:nth-child(even){
+            background: #00ff00;
+        }*/
+        #ul1 li:nth-last-child(1){
+            background: #ff0000;
+        }
+        #div1::selection{
+            background-color: #f00;
+        }
+    </style>
+</head>
+<body>
+    <a href="#div1">link</a>
+    <ul id="ul1">
+        <li>001</li>
+        <li>002</li>
+        <li>003</li>
+        <li>004</li>
+        <li>005</li>
+        <li>006</li>
+        <li>007</li>
+        <li>008</li>
+        <li>009</li>
+    </ul>
+    <input type="text" disabled>
+    <div id="div1">div1</div>
+</body>
+</html>

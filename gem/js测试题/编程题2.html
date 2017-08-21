@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        /*
+        * 有一行单词，空格为单词间的间隔，找出其中最长的单词和最短的单词。
+        * */
+        var str = "asdfsa sadfas sad asdf asf asdf asdf";
+        var arr = str.split(" ");
+        var newArr = [];
+        for(var i=0; i<arr.length; i++){
+            var obj = {
+                word : arr[i],
+                length : arr[i].length
+            };
+            newArr.push(obj);
+        }
+        newArr.sort(function(a, b){
+            return a.length - b.length;
+        });
+        console.log("最短单词为：" + newArr[0].word);
+        console.log("最长单词为：" + newArr[arr.length - 1].word);
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <script>
+        function recurrence1(num) {
+            if(num == 1){
+                return 1;
+            }
+            return num * arguments.callee(num - 1);
+        }
+
+        function recurrence2(num) {
+            var sum = 1;
+            for(var i=1; i<=num; i++){
+                sum *= i;
+            }
+            return sum;
+        }
+
+        document.write(recurrence1(10) + "<br>");
+        document.write(recurrence2(10));
+
+
+        var sum = 0;
+        for(var i=1; i<=10; i++){
+            sum = sum + recurrence1(i);
+        }
+        console.log(sum);
+    </script>
+</body>
+</html>

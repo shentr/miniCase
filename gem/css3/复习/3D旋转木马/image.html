@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="container">
+        <!--<img src="img/2.jpg" alt="" id="img">-->
+    </div>
+    <script>
+        var oContainer = document.getElementById("container");
+        var oImg = new Image();
+        oImg.onload = function(){
+            oContainer.appendChild(oImg);
+           alert(oImg.offsetWidth);
+
+        };
+        oImg.src = "img/1.jpg";
+
+
+        //       var oImg = document.getElementById("img");
+//       console.log(oImg.offsetWidth);
+    </script>
+</body>
+</html>

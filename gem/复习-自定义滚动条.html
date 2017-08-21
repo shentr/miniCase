@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #container{
+            width: 400px;
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+        #content{
+            width: 380px;
+            background: #cccccc;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        #scroll-bar{
+            width: 20px;
+            height: 200px;
+            background: #bbbbbb;
+            position: relative;
+            top: 0;
+            left: 380px;
+        }
+        #scroll-btn{
+            width: 20px;
+            height: 20px;
+            background: #ff0000;
+            cursor: pointer;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="content">
+            哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+            哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+            哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+            哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+            哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+            哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+            哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+            哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+            哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+            哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+            哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+            哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+            哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+            哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+            哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+            哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+            哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+            哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+            哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+            哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+            哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+        </div>
+        <div id="scroll-bar">
+            <div id="scroll-btn"></div>
+        </div>
+    </div>
+
+    <script>
+        var oBtn = document.getElementById("scroll-btn");
+        var oBar = document.getElementById("scroll-bar");
+        var oContent = document.getElementById("content");
+        var oContainer = document.getElementById("container");
+        oBtn.onmousedown = function(e){
+            e = e || window.event;
+            var iDisY = e.clientY - oBtn.offsetTop;
+            document.onmousemove = function(e){
+                e = e || window.event;
+                var top = e.clientY - iDisY;
+                var maxHeight = oBar.offsetHeight - oBtn.offsetHeight;
+                if(top < 0){
+                    top = 0;
+                }
+                if(top > maxHeight){
+                    top = maxHeight;
+                }
+                oBtn.style.top = top + "px";
+
+                var scale = top / maxHeight;
+                oContent.style.top = -(oContent.offsetHeight - oContainer.offsetHeight) * scale + "px";
+
+            };
+        };
+
+        document.onmouseup = function(){
+            document.onmousemove = null;
+        };
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

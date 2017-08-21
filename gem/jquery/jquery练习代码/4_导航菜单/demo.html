@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin:0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        /*ul>li{
+
+        }*/
+        .main{
+            float: left;
+            width: 150px;
+            background: #cccccc;
+        }
+        .main-link{
+            display: block;
+            height:30px;
+            line-height: 30px;
+            text-indent: 20px;
+            color:#000;
+            background: url("images/down.gif") no-repeat 5px;
+        }
+        .main li a{
+            display: block;
+            height:30px;
+            line-height: 30px;
+            text-indent: 20px;
+            color:#fff;
+            background: #888888;
+        }
+        .main ul{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="container">
+
+        <ul>
+            <li class="main">
+                <a href="#" class="main-link">菜单1</a>
+                <ul>
+                    <li><a href="#">子菜单1</a></li>
+                    <li><a href="#">子菜单2</a></li>
+                </ul>
+            </li>
+            <li class="main">
+                <a href="#" class="main-link">菜单2</a>
+                <ul>
+                    <li><a href="#">子菜单1</a></li>
+                    <li><a href="#">子菜单2</a></li>
+                </ul>
+            </li>
+            <li class="main">
+                <a href="#" class="main-link">菜单3</a>
+                <ul>
+                    <li><a href="#">子菜单1</a></li>
+                    <li><a href="#">子菜单2</a></li>
+                </ul>
+            </li>
+        </ul>
+
+    </div>
+
+
+
+
+<script src="../../jquery-1.12.4.js"></script>
+    <script>
+
+        $('.main').hover(function(){
+                //$('.main ul:animated').stop();
+            //if(!$('.main ul').is(':animated')){
+                $(this).find('.main-link').css('background-image','url("images/up.gif")').end().children('ul').stop().slideDown();
+
+           // }
+
+        },function(){
+            $(this).find('.main-link').css('background-image','url("images/down.gif")').end().children('ul').stop().slideUp();
+
+        });
+    </script>
+</body>
+</html>

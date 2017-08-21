@@ -1,0 +1,72 @@
+html,body{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.unlock-container{
+    height: 100%;
+}
+.unlock-top{
+    text-align: center;
+    vertical-align: middle;
+    font: 1.7em/2.5em a;
+    letter-spacing: .1em;
+    color:#000;
+    background: #f8f8f8;
+    border-bottom: 1px solid #bcbcbc;
+}
+.unlock-body{
+    height: 100%;
+    background: #f0f0f2;
+}
+.unlock-gesture{
+    width: 210px;
+    height: 210px;
+    margin: auto;
+    padding-top:15%;
+    overflow: hidden;
+}
+.unlock-gesture li{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border:1px solid #c7c7c7;
+    background-color: #fff;
+    float:left;
+    margin-right: 20%;
+    margin-bottom: 20%;
+    transition: background-color 1s ease-out;
+}
+.unlock-gesture .unlock-touch-color{
+    background-color: #ffa726;
+    border-color:#fc8c06;
+}
+.unlock-gesture li:nth-child(3n){
+    margin-right: 0;
+}
+.unlock-hint{
+    margin-top:15%;
+    font:1.3em/30px a;
+    letter-spacing: 1px;
+    font-weight:600;
+    text-align: center;
+}
+.unlock-choose{
+    position: absolute;
+    left:32%;
+    bottom:10%;
+    font-size: 1.3em;
+    font-weight:500;
+    line-height: 40px;
+    letter-spacing: .1em;
+}
+.unlock-choose label{
+    margin-left: 10px;
+}
+.unlock-induction{
+    width: 100%;
+    height: 100%;
+}
+#unlock-drawLine{
+    position: absolute;
+}

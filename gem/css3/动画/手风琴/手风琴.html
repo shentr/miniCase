@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        #container{
+            width: 805px;
+            height: 500px;
+            margin: 100px auto;
+            overflow: hidden;
+            box-shadow: 5px 5px 5px 5px rgba(0, 0 ,0, 0.5);
+        }
+        #container li{
+            width: 160px;
+            height: 500px;
+            float: left;
+            border-left: 1px solid #aaa;
+            position: relative;
+            transition: all 1s ease-in-out;
+        }
+        #container li a{
+            position: absolute;
+            bottom: 0;
+            width: 600px;
+            height: 30px;
+            background: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            line-height: 30px;
+        }
+        #container:hover li{
+            width: 50px;
+        }
+        #container li:hover{
+            width: 600px;
+        }
+
+    </style>
+</head>
+<body>
+    <ul id="container">
+        <li><a href="#">描述1</a><img src="img/1.jpg" alt=""></li>
+        <li><a href="#">描述2</a><img src="img/2.jpg" alt=""></li>
+        <li><a href="#">描述3</a><img src="img/3.jpg" alt=""></li>
+        <li><a href="#">描述3</a><img src="img/4.jpg" alt=""></li>
+        <li><a href="#">描述4</a><img src="img/5.jpg" alt=""></li>
+    </ul>
+</body>
+</html>
+
+

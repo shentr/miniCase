@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div1{
+            width: 200px;
+            height: 200px;
+            background: #ff0000;
+            /*-webkit-transition-property: width;
+            -webkit-transition-duration: 2s;
+            -webkit-transition-timing-function: ease;*/
+            -webkit-transition: width 2s ease, height 3s ease-in;
+        }
+        #div1:hover{
+            width: 400px;
+            height: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1"></div>
+</body>
+</html>

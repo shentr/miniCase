@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="jquery-1.12.4.js"></script>
+
+</head>
+<body>
+<!--<div class="container">
+    <div class="goodbye">
+        Goodbye
+        <div class="hello">Hello</div>
+
+    </div>
+    <div class="wrap1"></div>
+</div>-->
+<div class="container" id="ll">
+    <p class="inner">ppp</p>
+    <div class="inner">Hello</div>
+    8888
+    <div class="inner">Goodbye</div>
+</div>
+<script>
+   // $(".hello").clone().appendTo('.goodbye');
+    //$('.hello').clone().appendTo('.goodbye');
+    //$(".container").wrap('<div id="wrap"></div>')
+   //$(".container").wrap($('.wrap1'));
+    //$('.inner').wrapAll('<div class="wrap"></div>');
+   //$('.container').wrapInner('<div class="wrap"></div>');
+   //$('.container').append('<div>ooo</div>').css("background",'red');
+
+   //$('<div>ooo</div>').appendTo('.container').css("background",'red');
+    //$('.container').text('<p>000</p>');
+    var $del = $("div").detach('.inner');
+   //console.log($del);
+    //$(".container").empty();
+    //$("div").remove('.inner');
+    $('.container').after($del);
+
+</script>
+
+
+</body>
+</html>
